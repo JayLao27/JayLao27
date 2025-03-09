@@ -36,6 +36,6 @@ When I’m not coding, I’m brainstorming new ideas, refining plans, and taking
 <p align="center">
 <img src="https://media.giphy.com/media/1zJUoEOi6OGtnzHtn5/giphy.gif" width="300">
 </p>  
-<div align="center">
+<div align="center font size=10">
 After hours of coding and problem-solving, I take a step back—literally. Walking helps me reset, reflect, and come back stronger. It’s my way of keeping the mind sharp and the creativity flowing.
 </div>
