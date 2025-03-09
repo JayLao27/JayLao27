@@ -7,10 +7,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-
-![GitHub Streak](https://streak-stats.demolab.com/?user=JayLao27&theme=tokyonight)
-
-
+![Spotify](https://novatorem.vercel.app/api/spotify)
 
 ### 🐍 Watch My Contribution Graph Eat My Contributions:
 ![Snake animation](https://raw.githubusercontent.com/JayLao27/JayLao27/output/github-contribution-grid-snake.svg)
