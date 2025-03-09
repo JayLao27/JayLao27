@@ -4,7 +4,7 @@
 
 
 <div align="center">
-  <h2><b>I'm Jay Lao, a passionate developer and problem solver who thrives on turning ideas into reality.</b></h2>
+  <h2><b>A passionate developer and problem solver who thrives on turning ideas into reality.</b></h2>
   <h3><b>If you're wondering what a day in my life looks like, let me break it down for you—through GIFs!</b></h3>
 </div>
 
