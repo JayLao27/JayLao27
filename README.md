@@ -1,4 +1,6 @@
-## Hi there 👋
+# Hi, I'm Jay Lao 👋  
+![Profile Views](https://komarev.com/ghpvc/?username=JayLao&color=red)
+
 
 <!--
 **JayLao27/JayLao27** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
