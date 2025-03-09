@@ -10,7 +10,7 @@
 
 
 <p align="center">
-<img src="https://media.giphy.com/media/78XCFBGOlS6keY1Bil/giphy.gif" width="300" height="100">
+<img src="https://media.giphy.com/media/78XCFBGOlS6keY1Bil/giphy.gif" width="300" height="200">
 
 
 🖥️ Lost in the Screen
