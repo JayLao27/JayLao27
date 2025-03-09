@@ -1,9 +1,8 @@
 # Hi, I'm Jay Lao 👋  
 ![Profile Views](https://komarev.com/ghpvc/?username=JayLao&color=red)
 
-![Profile Views](https://komarev.com/ghpvc/?username=JayLao27&color=red)
+![Spotify Now Playing](https://spotify-github-profile.vercel.app/api/view?uid=your_spotify_id&cover_image=true&theme=default)
 
-![Snake animation](https://github.com/JayLao27/JayLao27/blob/output/github-contribution-grid-snake.svg)
 
 
 <div align="center">
