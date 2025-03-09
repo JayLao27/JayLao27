@@ -24,14 +24,15 @@
 <div align="center">
 Ever get so deep into work that the world fades away? Yeah, me too. I become one with the monitor, tackling complex projects and crafting something extraordinary.
 </div>
-✍️ Building, Writing, Creating
+<h1 style="font-size: 35px;">✍️ <b>Building, Writing, Creating</b></h1>
 <p align="center">
 <img src="https://media.giphy.com/media/l49JRQC9RNa5j35a8/giphy.gif" width="300">
 </p>  
 <div align="center">
 When I’m not coding, I’m brainstorming new ideas, refining plans, and taking notes on how to improve. Innovation doesn’t happen by accident—it’s a process.
 </div>
-🚶 Walking to Clear My Mind
+<h1 style="font-size: 35px;">🚶 <b>Walking to Clear My Mind</b></h1>
+
 <p align="center">
 <img src="https://media.giphy.com/media/1zJUoEOi6OGtnzHtn5/giphy.gif" width="300">
 </p>  
