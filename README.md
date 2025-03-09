@@ -1,6 +1,11 @@
 # Hi, I'm Jay Lao 👋  
 ![Profile Views](https://komarev.com/ghpvc/?username=JayLao&color=red)
 
+![Profile Views](https://komarev.com/ghpvc/?username=JayLao27&color=red)
+
+![Snake animation](https://github.com/JayLao27/JayLao27/blob/output/github-contribution-grid-snake.svg)
+
+
 <div align="center">
   <h2><b>I'm Jay Lao, a passionate developer and problem solver who thrives on turning ideas into reality.</b></h2>
   <h3><b>If you're wondering what a day in my life looks like, let me break it down for you—through GIFs!</b></h3>
