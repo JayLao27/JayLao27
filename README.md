@@ -5,4 +5,5 @@
 
 ![Dark Coding GIF](https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif)
 
-<img src="https://your-dark-banner-image-link.com" width="100%">
+<img src="https://via.placeholder.com/1200x500/0d1117/FFFFFF?text=Welcome+to+My+Profile" width="100%">
+
