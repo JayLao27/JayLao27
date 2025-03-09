@@ -1,11 +1,11 @@
 # Hi, I'm Jay Lao 👋  
 ![Profile Views](https://komarev.com/ghpvc/?username=JayLao&color=red)
 
-<h1 style="text-align: center; font-size: 50px; font-weight: bold;">Hey there!</h1>
-<h2 style="text-align: center; font-size: 40px; font-weight: bold;">I'm Jay Lao, a passionate developer and problem solver who thrives on turning ideas into reality.</h2>
-<h3 style="text-align: center; font-size: 30px; font-weight: bold;">If you're wondering what a day in my life looks like, let me break it down for you—through GIFs!</h3>
+<p style="text-align: center; font-size: 50px; font-weight: bold;">Hey there!</p>
+<p style="text-align: center; font-size: 40px; font-weight: bold;">I'm Jay Lao, a passionate developer and problem solver who thrives on turning ideas into reality.</p>
+<p style="text-align: center; font-size: 30px; font-weight: bold;">If you're wondering what a day in my life looks like, let me break it down for you—through GIFs!</p>
 
-<h2 style="font-size: 35px;">👨‍💻 <b>Code, Debug, Repeat</b></h2>
+<p style="font-size: 35px;">👨‍💻 <b>Code, Debug, Repeat</b></p>
 
 
 
