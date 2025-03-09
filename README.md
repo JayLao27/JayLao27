@@ -7,9 +7,6 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-### 📊 GitHub Stats:
-![Jay's GitHub Stats](https://github-readme-stats.vercel.app/api?username=JayLao27&show_icons=true&theme=radical)
-
 ### 🐍 Watch My Contribution Graph Eat My Contributions:
 ![Snake animation](https://raw.githubusercontent.com/JayLao27/JayLao27/output/github-contribution-grid-snake.svg)
 
