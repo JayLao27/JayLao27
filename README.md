@@ -4,3 +4,5 @@
 ![Coding GIF](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
 
 ![Dark Coding GIF](https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif)
+
+<img src="https://your-dark-banner-image-link.com" width="100%">
