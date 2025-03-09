@@ -9,6 +9,11 @@
 
 ![Spotify](https://novatorem.vercel.app/api/spotify)
 
+![Profile Views](https://komarev.com/ghpvc/?username=JayLao27&color=blue)
+![Followers](https://img.shields.io/github/followers/JayLao27?style=social)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+
+
 ### 🐍 Watch My Contribution Graph Eat My Contributions:
 ![Snake animation](https://raw.githubusercontent.com/JayLao27/JayLao27/output/github-contribution-grid-snake.svg)
 
