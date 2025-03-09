@@ -1,8 +1,6 @@
 # Hi, I'm Jay Lao 👋  
 ![Profile Views](https://komarev.com/ghpvc/?username=JayLao&color=red)
 
-![Spotify Now Playing](https://spotify-github-profile.vercel.app/api/view?uid=your_spotify_id&cover_image=true&theme=default)
-
 
 
 <div align="center">
