@@ -10,7 +10,7 @@
 
 
 
-<p style="font-size: 35px;">👨‍💻 <b>Code, Debug, Repeat</b></p>
+<h1> style="font-size: 35px;">👨‍💻 <b>Code, Debug, Repeat</b></h1>
 
 
 
