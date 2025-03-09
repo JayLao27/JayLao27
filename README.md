@@ -13,3 +13,4 @@
 ### 🐍 Watch My Contribution Graph Eat My Contributions:
 ![Snake animation](https://github.com/JayLao27/JayLao27/blob/output/github-contribution-grid-snake.svg)
 
+![Coding GIF](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
