@@ -1,8 +1,8 @@
 # Hi, I'm Jay Lao 👋  
 ![Profile Views](https://komarev.com/ghpvc/?username=JayLao&color=red)
 
-# **Hey there!** 👋  
-## **I'm Jay Lao, a passionate developer and problem solver who thrives on turning ideas into reality.**  
+# **Hey there!
+## I'm Jay Lao, a passionate developer and problem solver who thrives on turning ideas into reality.**  
 ### **If you're wondering what a day in my life looks like, let me break it down for you—through GIFs!**  
 
 ## 👨‍💻 **Code, Debug, Repeat**  
