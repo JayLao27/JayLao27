@@ -5,7 +5,7 @@ Hey there! 👋 I'm Jay Lao, a passionate developer and problem solver who thriv
 👨‍💻 Code, Debug, Repeat
 
 <p align="center">
-<img src="https://media.giphy.com/media/78XCFBGOlS6keY1Bil/giphy.gif" width="300">
+<img src="https://media.giphy.com/media/78XCFBGOlS6keY1Bil/giphy.gif" width="600">
 
 
 🖥️ Lost in the Screen
