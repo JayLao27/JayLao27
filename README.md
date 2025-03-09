@@ -23,7 +23,7 @@
 <img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" width="300">
 </p> 
 <div align="center">
-<p><b>Ever get so deep into work that the world fades away? Yeah, me too. I become one with the monitor, tackling complex projects and crafting something extraordinary. IT WAS FLOW.</b></p>
+<p><b>Ever get so deep into work that the world fades away? Yeah, me too. I become one with the monitor, tackling complex projects and crafting something extraordinary. it is FLOW.</b></p>
 </div>
 <h1 style="font-size: 35px;">✍️ <b>Building, Writing, Creating</b></h1>
 <p align="center">
