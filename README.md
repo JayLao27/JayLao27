@@ -9,9 +9,11 @@
 
 ![Spotify](https://novatorem.vercel.app/api/spotify)
 
-![3D Contributions](https://github.com/JayLao27/JayLao27/blob/main/profile-3d-contrib/profile-night-rainbow.svg)
+### Connect with me:
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourhandle)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
+[![Portfolio](https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=white)](https://yourwebsite.com)
 
-![Snake animation](https://raw.githubusercontent.com/JayLao27/JayLao27/output/github-contribution-grid-snake.svg)
 
 
 ![Coding GIF](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
