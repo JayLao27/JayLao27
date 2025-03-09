@@ -1,9 +1,8 @@
 # Hi, I'm Jay Lao 👋  
 ![Profile Views](https://komarev.com/ghpvc/?username=JayLao&color=red)
 
-![Coding GIF](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
+<img src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" width="300">
 
-![Dark Coding GIF](https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif)
+<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="300">
 
-<img src="https://via.placeholder.com/1200x500/0d1117/FFFFFF?text=Welcome+to+My+Profile" width="100%">
 
