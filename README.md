@@ -19,3 +19,11 @@
 
 
 ![Coding GIF](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
+<style>
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #0d1117;
+      color: white;
+    }
+  }
+</style>
