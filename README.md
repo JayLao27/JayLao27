@@ -22,14 +22,14 @@
 <img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" width="300">
 </p> 
 <div align="center">
-<b>Ever get so deep into work that the world fades away? Yeah, me too. I become one with the monitor, tackling complex projects and crafting something extraordinary.</b>
+<p><b>Ever get so deep into work that the world fades away? Yeah, me too. I become one with the monitor, tackling complex projects and crafting something extraordinary.</b></p>
 </div>
 <h1 style="font-size: 35px;">✍️ <b>Building, Writing, Creating</b></h1>
 <p align="center">
 <img src="https://media.giphy.com/media/l49JRQC9RNa5j35a8/giphy.gif" width="300">
 </p>  
 <div align="center">
-<b>When I’m not coding, I’m brainstorming new ideas, refining plans, and taking notes on how to improve. Innovation doesn’t happen by accident—it’s a process.</b>
+<p><b>When I’m not coding, I’m brainstorming new ideas, refining plans, and taking notes on how to improve. Innovation doesn’t happen by accident—it’s a process.</b></p>
 </div>
 <h1 style="font-size: 35px;">🚶 <b>Walking to Clear My Mind</b></h1>
 
@@ -37,5 +37,5 @@
 <img src="https://media.giphy.com/media/1zJUoEOi6OGtnzHtn5/giphy.gif" width="300">
 </p>  
 <div align="center font ">
-<b>After hours of coding and problem-solving, I take a step back—literally. Walking helps me reset, reflect, and come back stronger. It’s my way of keeping the mind sharp and the creativity flowing.
-</b></div>
+<p><b>After hours of coding and problem-solving, I take a step back—literally. Walking helps me reset, reflect, and come back stronger. It’s my way of keeping the mind sharp and the creativity flowing.
+</b></p> </div>
