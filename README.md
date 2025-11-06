@@ -12,7 +12,7 @@
 
 
 ---
----
+
 
 ### Core Skills & Languages
 ![Python](https://img.shields.io/badge/Python-FFF1DA?style=flat&logo=python&logoColor=374151&logoWidth=16)
@@ -46,7 +46,7 @@
 ![NLTK](https://img.shields.io/badge/NLTK-FFF1DA?style=flat)
 ![Generative AI](https://img.shields.io/badge/Generative_AI-FFF1DA?style=flat)
 
----
+
 
 ### Full-Stack & Web Development
 ![Next.js](https://img.shields.io/badge/Next.js-FFF1DA?style=flat&logo=next.js&logoColor=374151&logoWidth=16)
@@ -59,14 +59,10 @@
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-FFF1DA?style=flat)
 ![Figma](https://img.shields.io/badge/Figma-FFF1DA?style=flat)
 
----
 
 ### Databases & Cloud
 ![MySQL](https://img.shields.io/badge/MySQL-FFF1DA?style=flat&logo=mysql&logoColor=374151&logoWidth=16)
 ![MongoDB](https://img.shields.io/badge/MongoDB-FFF1DA?style=flat&logo=mongodb&logoColor=374151&logoWidth=16)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-FFF1DA?style=flat&logo=googlecloud&logoColor=374151&logoWidth=16)
-
----
-
 
 ---
