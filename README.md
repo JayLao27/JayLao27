@@ -1,9 +1,13 @@
-# Hello, I'm Jay Lao!
+# <div align="center">
+
+[![Hello, I'm Jay Lao!](https://img.shields.io/badge/Hello,_I'm_Jay_Lao!-FFFFFF?style=for-the-badge&logoColor=000000)](https://www.linkedin.com/in/jaylao/)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-FFFFFF?style=for-the-badge&logo=linkedin&logoColor=000000)](https://www.linkedin.com/in/jaylao/)
 [![Gmail](https://img.shields.io/badge/Gmail-FFFFFF?style=for-the-badge&logo=gmail&logoColor=000000)](cjaylao447@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-FFFFFF?style=for-the-badge&logo=github&logoColor=000000)](https://github.com/Jaylao27)
 [![Kaggle](https://img.shields.io/badge/Kaggle-FFFFFF?style=for-the-badge&logo=kaggle&logoColor=000000)](https://www.kaggle.com/jaylao)
+
+</div>
 
 
 ---
@@ -21,7 +25,6 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
----
 
 ### AI & Data Science
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
@@ -40,7 +43,7 @@
 ![NLTK](https://img.shields.io/badge/NLTK-FF9900?style=for-the-badge)
 ![Generative AI](https://img.shields.io/badge/Generative_AI-8C00FF?style=for-the-badge)
 
----
+
 
 ### Full-Stack & Web Development
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
