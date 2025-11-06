@@ -1,4 +1,4 @@
-# <div align="center">
+<div align="center">
 
 [![Hello, I'm Jay Lao!](https://img.shields.io/badge/Hello,_I'm_Jay_Lao!-FFFFFF?style=for-the-badge&logoColor=000000)](https://www.linkedin.com/in/jaylao/)
 
