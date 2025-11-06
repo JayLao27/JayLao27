@@ -13,7 +13,7 @@
 
 ---
 
- Core Skills & Languages
+### Core Skills & Languages
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -57,9 +57,11 @@
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge)
 
----
+
 
 ### Databases & Cloud
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+
+---
