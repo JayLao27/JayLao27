@@ -2,12 +2,13 @@
 
 [![Hello, I'm Jay Lao!](https://img.shields.io/badge/Hello,_I'm_Jay_Lao!-FFFFFF?style=for-the-badge&logoColor=000000)](https://www.linkedin.com/in/jaylao/)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-FFFFFF?style=for-the-badge&logo=linkedin&logoColor=000000)](https://www.linkedin.com/in/jaylao/)
-[![Gmail](https://img.shields.io/badge/Gmail-FFFFFF?style=for-the-badge&logo=gmail&logoColor=000000)](cjaylao447@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-FFFFFF?style=for-the-badge&logo=github&logoColor=000000)](https://github.com/Jaylao27)
-[![Kaggle](https://img.shields.io/badge/Kaggle-FFFFFF?style=for-the-badge&logo=kaggle&logoColor=000000)](https://www.kaggle.com/jaylao)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-FFFFFF?style=flat&logo=linkedin&logoColor=000000&logoWidth=12)](https://www.linkedin.com/in/jaylao/)
+[![Gmail](https://img.shields.io/badge/Gmail-FFFFFF?style=flat&logo=gmail&logoColor=000000&logoWidth=12)](cjaylao447@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-FFFFFF?style=flat&logo=github&logoColor=000000&logoWidth=12)](https://github.com/Jaylao27)
+[![Kaggle](https://img.shields.io/badge/Kaggle-FFFFFF?style=flat&logo=kaggle&logoColor=000000&logoWidth=12)](https://www.kaggle.com/jaylao)
 
 </div>
+
 
 
 ---
