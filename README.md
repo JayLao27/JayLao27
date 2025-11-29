@@ -8,7 +8,7 @@
 [![Kaggle](https://img.shields.io/badge/Kaggle-FFF1DA?style=flat&logo=kaggle&logoColor=000000&logoWidth=12)](https://www.kaggle.com/jaylao)
 
 
-![](https://komarev.com/ghpvc/?username=Jaylao27&color=374151&style=flat-square&label=Profile+Views)
+![](https://komarev.com/ghpvc/?username=Jaylao27&color=374151&style=flat-square&label=Visitors)
 
 </div>
 
