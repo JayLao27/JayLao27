@@ -61,3 +61,20 @@
 
 
 ---
+
+## 📊 Animated Contributions Timeline
+
+Check out my animated contributions visualization that shows contributions sliding through the years! Each box represents a day's contributions, and they smoothly slide to the right as the timeline progresses.
+
+👉 **[View Animated Contributions](contributions.html)** *(Open in browser to see the animation)*
+
+The visualization features:
+- 🎨 Beautiful GitHub-style contribution heatmap
+- 🎬 Smooth sliding animations as years progress
+- ⏯️ Play/Pause controls to watch the timeline
+- 🎯 Interactive hover tooltips showing contribution details
+- 📱 Fully responsive design
+
+*Built with TypeScript for a smooth, type-safe experience*
+
+---
