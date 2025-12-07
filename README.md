@@ -12,29 +12,9 @@
 
 </div>
 
----
-
-## 📊 GitHub Stats & Activity
-
-<div align="center">
-  
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Jaylao27&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=FFF1DA&icon_color=FFF1DA)
-
-![GitHub Streak](https://github-readme-streak-stats.demolab.com/?user=Jaylao27&theme=radical&hide_border=true&background=0D1117&ring=FFF1DA&fire=FFF1DA&currStreakLabel=FFF1DA)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Jaylao27&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=FFF1DA&text_color=FFF1DA)
-
-![GitHub Contributions](https://github-contributions-activity-graph.vercel.app/graph?username=Jaylao27&theme=red-natalie&hide_border=true&area=true&area_color=FFF1DA)
-
-</div>
 
 ---
 
-## 🐍 Contribution Snake
-
-![snake gif](https://github.com/Jaylao27/Jaylao27/blob/output/github-contribution-grid-snake.svg)
-
----
 
 ### Core Skills & Languages
 ![Python](https://img.shields.io/badge/Python-FFF1DA?style=flat&logo=python&logoColor=3776AB&logoWidth=16)
@@ -79,4 +59,3 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-FFF1DA?style=flat&logo=mongodb&logoColor=47A248&logoWidth=16)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-FFF1DA?style=flat&logo=googlecloud&logoColor=4285F4&logoWidth=16)
 
----
