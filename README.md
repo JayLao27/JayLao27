@@ -12,8 +12,6 @@
 
 </div>
 
-### 📊 GitHub Contributions
-
 ![Contributions](contributions.svg)
 
 ---

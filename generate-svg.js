@@ -1,11 +1,13 @@
 // Simple script to generate contributions SVG
 const fs = require('fs');
+const https = require('https');
 
-// Import the generator (we'll compile the TS first or use a JS version)
-// For now, let's create a simple inline version
+// GitHub username - change this to your username
+const GITHUB_USERNAME = 'Jaylao27';
+
 class ContributionsSVGGenerator {
-  constructor() {
-    this.contributions = [];
+  constructor(contributions = []) {
+    this.contributions = contributions;
     this.colors = {
       level0: '#ebedf0',
       level1: '#9be9a8',
@@ -13,23 +15,133 @@ class ContributionsSVGGenerator {
       level3: '#30a14e',
       level4: '#216e39'
     };
-    this.generateSampleContributions();
   }
 
-  generateSampleContributions() {
+  async fetchGitHubContributions(username) {
+    return new Promise((resolve, reject) => {
+      const query = `
+        query($username: String!) {
+          user(login: $username) {
+            contributionsCollection(from: "${new Date(new Date().getFullYear(), 0, 1).toISOString()}", to: "${new Date().toISOString()}") {
+              contributionCalendar {
+                weeks {
+                  contributionDays {
+                    date
+                    contributionCount
+                  }
+                }
+              }
+            }
+          }
+        }
+      `;
+
+      const data = JSON.stringify({
+        query: query,
+        variables: { username: username }
+      });
+
+      const options = {
+        hostname: 'api.github.com',
+        path: '/graphql',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': data.length,
+          'User-Agent': 'Node.js'
+        }
+      };
+
+      const req = https.request(options, (res) => {
+        let responseData = '';
+
+        res.on('data', (chunk) => {
+          responseData += chunk;
+        });
+
+        res.on('end', () => {
+          try {
+            const result = JSON.parse(responseData);
+            if (result.errors) {
+              console.warn('GitHub API Error:', result.errors);
+              // Fallback to sample data if API fails
+              resolve(this.generateSampleContributions());
+              return;
+            }
+
+            const contributions = [];
+            const weeks = result.data?.user?.contributionsCollection?.contributionCalendar?.weeks || [];
+            
+            weeks.forEach(week => {
+              week.contributionDays.forEach(day => {
+                contributions.push({
+                  date: day.date,
+                  count: day.contributionCount
+                });
+              });
+            });
+
+            // Fill in any missing dates with 0 contributions
+            const filledContributions = this.fillMissingDates(contributions);
+            resolve(filledContributions);
+          } catch (error) {
+            console.warn('Error parsing GitHub API response:', error.message);
+            // Fallback to sample data
+            resolve(this.generateSampleContributions());
+          }
+        });
+      });
+
+      req.on('error', (error) => {
+        console.warn('Error fetching from GitHub API:', error.message);
+        console.warn('Falling back to sample data...');
+        // Fallback to sample data
+        resolve(this.generateSampleContributions());
+      });
+
+      req.write(data);
+      req.end();
+    });
+  }
+
+  fillMissingDates(contributions) {
+    const contributionMap = new Map();
+    contributions.forEach(c => {
+      contributionMap.set(c.date, c.count);
+    });
+
     const today = new Date();
-    const startDate = new Date();
-    startDate.setFullYear(today.getFullYear() - 1);
+    const startDate = new Date(new Date().getFullYear(), 0, 1);
+    const filled = [];
 
     const currentDate = new Date(startDate);
     while (currentDate <= today) {
-      const count = Math.floor(Math.random() * 10);
-      this.contributions.push({
-        date: currentDate.toISOString().split('T')[0],
-        count
+      const dateStr = currentDate.toISOString().split('T')[0];
+      filled.push({
+        date: dateStr,
+        count: contributionMap.get(dateStr) || 0
       });
       currentDate.setDate(currentDate.getDate() + 1);
     }
+
+    return filled;
+  }
+
+  generateSampleContributions() {
+    // Fallback method if API fails
+    const today = new Date();
+    const startDate = new Date(new Date().getFullYear(), 0, 1);
+
+    const contributions = [];
+    const currentDate = new Date(startDate);
+    while (currentDate <= today) {
+      contributions.push({
+        date: currentDate.toISOString().split('T')[0],
+        count: 0
+      });
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return contributions;
   }
 
   getColor(count) {
@@ -79,9 +191,24 @@ class ContributionsSVGGenerator {
   }
 }
 
-// Generate the SVG
-const generator = new ContributionsSVGGenerator();
-const svg = generator.generateAnimatedSVG();
-fs.writeFileSync('contributions.svg', svg);
-console.log('Contributions SVG generated successfully!');
+// Main function to generate SVG with real GitHub data
+async function main() {
+  console.log(`Fetching contributions for ${GITHUB_USERNAME}...`);
+  const generator = new ContributionsSVGGenerator();
+  
+  try {
+    const contributions = await generator.fetchGitHubContributions(GITHUB_USERNAME);
+    generator.contributions = contributions;
+    console.log(`Found ${contributions.length} days of contribution data`);
+    
+    const svg = generator.generateAnimatedSVG();
+    fs.writeFileSync('contributions.svg', svg);
+    console.log('Contributions SVG generated successfully!');
+  } catch (error) {
+    console.error('Error generating SVG:', error.message);
+    process.exit(1);
+  }
+}
+
+main();
 
