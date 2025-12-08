@@ -1,55 +1,3 @@
-<script>
-// TypeScript compiled fade-in animation
-class FadeInAnimation {
-  constructor() {
-    this.elements = [];
-    this.delay = 100;
-    this.duration = 800;
-    this.init();
-  }
-  
-  init() {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => this.startAnimation());
-    } else {
-      this.startAnimation();
-    }
-  }
-  
-  startAnimation() {
-    const selectors = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li', 'a', 'span', 'div', 'img'];
-    selectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach(el => {
-        if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') return;
-        el.style.opacity = '0';
-        el.style.transition = `opacity ${this.duration}ms ease-in-out`;
-        this.elements.push(el);
-      });
-    });
-    this.animateElements();
-  }
-  
-  animateElements() {
-    this.elements.forEach((element, index) => {
-      setTimeout(() => {
-        element.style.opacity = '1';
-      }, index * this.delay);
-    });
-  }
-}
-
-if (typeof window !== 'undefined') {
-  new FadeInAnimation();
-}
-</script>
-
-<div style="font-family: 'Geist', sans-serif; font-weight: 400;">
-
-<img src="data:null;," width="100%" height="0" align="left" alt="">
-
-## <span style="font-weight: 600;">Let's connect</span>
-
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-FFFFFF?style=flat&logo=linkedin&logoColor=0077B5&logoWidth=12)](https://www.linkedin.com/in/jaylao/)
 [![Gmail](https://img.shields.io/badge/Gmail-FFFFFF?style=flat&logo=gmail&logoColor=EA4335&logoWidth=12)](cjaylao447@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-FFFFFF?style=flat&logo=github&logoColor=181717&logoWidth=12)](https://github.com/Jaylao27)
@@ -102,6 +50,3 @@ if (typeof window !== 'undefined') {
 ![MongoDB](https://img.shields.io/badge/MongoDB-FFFFFF?style=flat&logo=mongodb&logoColor=47A248&logoWidth=16)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-FFFFFF?style=flat&logo=googlecloud&logoColor=4285F4&logoWidth=16)
 
-</div>
-
-<script src="src/fade-in.js"></script>
