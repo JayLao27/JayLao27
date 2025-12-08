@@ -4,6 +4,9 @@ const https = require('https');
 
 // GitHub username - change this to your username
 const GITHUB_USERNAME = 'Jaylao27';
+// Optional: Add a GitHub personal access token for higher rate limits
+// Get one at: https://github.com/settings/tokens
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
 
 class ContributionsSVGGenerator {
   constructor(contributions = []) {
@@ -19,15 +22,28 @@ class ContributionsSVGGenerator {
 
   async fetchGitHubContributions(username) {
     return new Promise((resolve, reject) => {
+      // Query for the last year (from 1 year ago to today)
+      const today = new Date();
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(today.getFullYear() - 1);
+      oneYearAgo.setMonth(0);
+      oneYearAgo.setDate(1);
+      
+      const fromDate = oneYearAgo.toISOString();
+      const toDate = today.toISOString();
+      
+      // Use the correct GraphQL query format
       const query = `
-        query($username: String!) {
+        query($username: String!, $from: DateTime!, $to: DateTime!) {
           user(login: $username) {
-            contributionsCollection(from: "${new Date(new Date().getFullYear(), 0, 1).toISOString()}", to: "${new Date().toISOString()}") {
+            contributionsCollection(from: $from, to: $to) {
               contributionCalendar {
+                totalContributions
                 weeks {
                   contributionDays {
                     date
                     contributionCount
+                    color
                   }
                 }
               }
@@ -38,18 +54,29 @@ class ContributionsSVGGenerator {
 
       const data = JSON.stringify({
         query: query,
-        variables: { username: username }
+        variables: { 
+          username: username,
+          from: fromDate,
+          to: toDate
+        }
       });
+
+      const headers = {
+        'Content-Type': 'application/json',
+        'Content-Length': data.length,
+        'User-Agent': 'Node.js'
+      };
+      
+      // Add authorization header if token is provided
+      if (GITHUB_TOKEN) {
+        headers['Authorization'] = `Bearer ${GITHUB_TOKEN}`;
+      }
 
       const options = {
         hostname: 'api.github.com',
         path: '/graphql',
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Content-Length': data.length,
-          'User-Agent': 'Node.js'
-        }
+        headers: headers
       };
 
       const req = https.request(options, (res) => {
@@ -62,24 +89,50 @@ class ContributionsSVGGenerator {
         res.on('end', () => {
           try {
             const result = JSON.parse(responseData);
+            // Check for rate limit in the response
+            if (result.message && result.message.includes('rate limit')) {
+              console.error('\n❌ API Rate Limit Exceeded!');
+              console.error('To fix this, add a GitHub Personal Access Token:');
+              console.error('1. Go to: https://github.com/settings/tokens');
+              console.error('2. Generate a new token (no permissions needed for public data)');
+              console.error('3. Run: $env:GITHUB_TOKEN="your_token_here" (PowerShell) or export GITHUB_TOKEN="your_token_here" (Bash)');
+              console.error('4. Then run this script again\n');
+              reject(new Error('Rate limit exceeded'));
+              return;
+            }
+            
             if (result.errors) {
-              console.warn('GitHub API Error:', result.errors);
-              // Fallback to sample data if API fails
-              resolve(this.generateSampleContributions());
+              console.warn('GitHub API Error:', JSON.stringify(result.errors, null, 2));
+              reject(new Error(result.errors[0]?.message || 'GraphQL error'));
+              return;
+            }
+            
+            // Check if user exists
+            if (!result.data?.user) {
+              console.warn(`User "${username}" not found or profile is private.`);
+              reject(new Error(`User "${username}" not found`));
               return;
             }
 
             const contributions = [];
             const weeks = result.data?.user?.contributionsCollection?.contributionCalendar?.weeks || [];
             
+            if (weeks.length === 0) {
+              console.warn('No contribution data found. Check if the username is correct and the profile is public.');
+            }
+            
+            let totalContributions = 0;
             weeks.forEach(week => {
               week.contributionDays.forEach(day => {
                 contributions.push({
                   date: day.date,
                   count: day.contributionCount
                 });
+                totalContributions += day.contributionCount;
               });
             });
+
+            console.log(`Total contributions found: ${totalContributions} across ${contributions.length} days`);
 
             // Fill in any missing dates with 0 contributions
             const filledContributions = this.fillMissingDates(contributions);
@@ -111,10 +164,13 @@ class ContributionsSVGGenerator {
     });
 
     const today = new Date();
-    const startDate = new Date(new Date().getFullYear(), 0, 1);
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(today.getFullYear() - 1);
+    oneYearAgo.setDate(1); // Start from the 1st of the month
+    
     const filled = [];
 
-    const currentDate = new Date(startDate);
+    const currentDate = new Date(oneYearAgo);
     while (currentDate <= today) {
       const dateStr = currentDate.toISOString().split('T')[0];
       filled.push({
@@ -194,19 +250,48 @@ class ContributionsSVGGenerator {
 // Main function to generate SVG with real GitHub data
 async function main() {
   console.log(`Fetching contributions for ${GITHUB_USERNAME}...`);
+  if (!GITHUB_TOKEN) {
+    console.log('ℹ️  Tip: Add a GITHUB_TOKEN environment variable for higher rate limits');
+  }
+  
   const generator = new ContributionsSVGGenerator();
   
   try {
     const contributions = await generator.fetchGitHubContributions(GITHUB_USERNAME);
     generator.contributions = contributions;
-    console.log(`Found ${contributions.length} days of contribution data`);
+    
+    // Count non-zero contributions
+    const daysWithContributions = contributions.filter(c => c.count > 0).length;
+    const totalContributions = contributions.reduce((sum, c) => sum + c.count, 0);
+    
+    console.log(`✓ Found ${contributions.length} days of data`);
+    console.log(`✓ ${daysWithContributions} days with contributions (${totalContributions} total)`);
     
     const svg = generator.generateAnimatedSVG();
     fs.writeFileSync('contributions.svg', svg);
-    console.log('Contributions SVG generated successfully!');
+    console.log('✓ Contributions SVG generated successfully!');
   } catch (error) {
-    console.error('Error generating SVG:', error.message);
-    process.exit(1);
+    if (error.message.includes('rate limit') || error.message.includes('Rate limit')) {
+      console.error('\n⚠️  Using fallback data due to rate limit.');
+      console.error('The SVG will be generated with placeholder data.');
+      console.error('Add a GITHUB_TOKEN to fetch your real contributions.\n');
+      
+      // Generate with sample data as fallback
+      const contributions = generator.generateSampleContributions();
+      generator.contributions = contributions;
+      const svg = generator.generateAnimatedSVG();
+      fs.writeFileSync('contributions.svg', svg);
+      console.log('✓ Contributions SVG generated with placeholder data.');
+      console.log('⚠️  Note: This is placeholder data. Add GITHUB_TOKEN for real contributions.');
+    } else {
+      console.error('Error generating SVG:', error.message);
+      // Still generate with fallback data
+      const contributions = generator.generateSampleContributions();
+      generator.contributions = contributions;
+      const svg = generator.generateAnimatedSVG();
+      fs.writeFileSync('contributions.svg', svg);
+      console.log('✓ Contributions SVG generated with placeholder data.');
+    }
   }
 }
 
