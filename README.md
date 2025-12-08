@@ -1,80 +1,4 @@
-<style>
-  /* Global styling with dark background and white text */
-  body {
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-    color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-  }
-  
-  /* Fade-in animation for all elements */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply fade-in to all content */
-  .fade-in {
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0;
-  }
-  
-  /* Stagger animations for different sections */
-  .fade-in-1 { animation-delay: 0.1s; }
-  .fade-in-2 { animation-delay: 0.2s; }
-  .fade-in-3 { animation-delay: 0.3s; }
-  .fade-in-4 { animation-delay: 0.4s; }
-  .fade-in-5 { animation-delay: 0.5s; }
-  .fade-in-6 { animation-delay: 0.6s; }
-  
-  /* Style for headings */
-  h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-  }
-  
-  /* Style for badges and links */
-  a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  a:hover {
-    opacity: 0.8;
-    transform: translateY(-2px);
-  }
-  
-  /* Center alignment wrapper */
-  .center-content {
-    text-align: center;
-  }
-  
-  /* Section styling */
-  .section {
-    margin: 30px 0;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-  }
-  
-  /* Contribution SVG styling */
-  .contributions-container {
-    margin: 30px 0;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-  }
-</style>
-
-<div align="center" class="fade-in fade-in-1">
+<div align="center">
 
 [![Hello, I'm Jay Lao!](https://img.shields.io/badge/Hello,_I'm_Jay_Lao!-FFF1DA?style=for-the-badge&logoColor=000000)](https://www.linkedin.com/in/jaylao/)
 
@@ -88,13 +12,9 @@
 
 </div>
 
-<div class="contributions-container fade-in fade-in-2">
 ![Contributions](contributions.svg)
-</div>
 
 ---
-
-<div class="section fade-in fade-in-3">
 
 ### Core Skills & Languages
 ![Python](https://img.shields.io/badge/Python-FFF1DA?style=flat&logo=python&logoColor=3776AB&logoWidth=16)
@@ -105,10 +25,6 @@
 ![HTML5](https://img.shields.io/badge/HTML5-FFF1DA?style=flat&logo=html5&logoColor=E34F26&logoWidth=16)
 ![CSS3](https://img.shields.io/badge/CSS3-FFF1DA?style=flat&logo=css3&logoColor=1572B6&logoWidth=16)
 ![SQL](https://img.shields.io/badge/SQL-FFF1DA?style=flat&logo=mysql&logoColor=4479A1&logoWidth=16)
-
-</div>
-
-<div class="section fade-in fade-in-4">
 
 ### AI & Data Science
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FFF1DA?style=flat&logo=tensorflow&logoColor=FF6F00&logoWidth=16)
@@ -127,10 +43,6 @@
 ![NLTK](https://img.shields.io/badge/NLTK-FFF1DA?style=flat&logoColor=FF9900&logoWidth=16)
 ![Generative AI](https://img.shields.io/badge/Generative_AI-FFF1DA?style=flat&logoColor=8C00FF&logoWidth=16)
 
-</div>
-
-<div class="section fade-in fade-in-5">
-
 ### Full-Stack & Web Development
 ![Next.js](https://img.shields.io/badge/Next.js-FFF1DA?style=flat&logo=next.js&logoColor=000000&logoWidth=16)
 ![Node.js](https://img.shields.io/badge/Node.js-FFF1DA?style=flat&logo=node.js&logoColor=339933&logoWidth=16)
@@ -142,13 +54,7 @@
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-FFF1DA?style=flat&logoColor=563D7C&logoWidth=16)
 ![Figma](https://img.shields.io/badge/Figma-FFF1DA?style=flat&logoColor=F24E1E&logoWidth=16)
 
-</div>
-
-<div class="section fade-in fade-in-6">
-
 ### Databases & Cloud
 ![MySQL](https://img.shields.io/badge/MySQL-FFF1DA?style=flat&logo=mysql&logoColor=4479A1&logoWidth=16)
 ![MongoDB](https://img.shields.io/badge/MongoDB-FFF1DA?style=flat&logo=mongodb&logoColor=47A248&logoWidth=16)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-FFF1DA?style=flat&logo=googlecloud&logoColor=4285F4&logoWidth=16)
-
-</div>
