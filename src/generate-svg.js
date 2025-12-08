@@ -251,9 +251,16 @@ class ContributionsSVGGenerator {
 
 // Main function to generate SVG with real GitHub data
 async function main() {
-  console.log(`Fetching contributions for ${GITHUB_USERNAME}...`);
+  console.log(`\n📊 Fetching contributions for ${GITHUB_USERNAME}...\n`);
   if (!GITHUB_TOKEN) {
-    console.log('ℹ️  Tip: Add a GITHUB_TOKEN environment variable for higher rate limits');
+    console.log('⚠️  No GITHUB_TOKEN found!');
+    console.log('   You will be limited to 60 requests/hour (rate limit may be exceeded)');
+    console.log('   To get your REAL contributions, add a token:');
+    console.log('   1. Go to: https://github.com/settings/tokens');
+    console.log('   2. Generate a new token (no permissions needed)');
+    console.log('   3. Run: $env:GITHUB_TOKEN="your_token_here"\n');
+  } else {
+    console.log('✓ GITHUB_TOKEN found - using authenticated requests\n');
   }
   
   const generator = new ContributionsSVGGenerator();
