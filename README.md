@@ -1,36 +1,52 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;600&display=swap');
-  
-  body {
-    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: white;
+<script>
+// TypeScript compiled fade-in animation
+class FadeInAnimation {
+  constructor() {
+    this.elements = [];
+    this.delay = 100;
+    this.duration = 800;
+    this.init();
   }
   
-  /* Fade-in animation using CSS only */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  init() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.startAnimation());
+    } else {
+      this.startAnimation();
     }
   }
   
-  /* Apply fade-in to all elements with staggered delays */
-  h2, h3, p, a, img, div {
-    animation: fadeIn 0.8s ease-in-out forwards;
-    opacity: 0;
+  startAnimation() {
+    const selectors = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li', 'a', 'span', 'div', 'img'];
+    selectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') return;
+        el.style.opacity = '0';
+        el.style.transition = `opacity ${this.duration}ms ease-in-out`;
+        this.elements.push(el);
+      });
+    });
+    this.animateElements();
   }
   
-  h2 { animation-delay: 0.1s; }
-  h3 { animation-delay: 0.2s; }
-  a { animation-delay: 0.3s; }
-  img { animation-delay: 0.4s; }
-</style>
+  animateElements() {
+    this.elements.forEach((element, index) => {
+      setTimeout(() => {
+        element.style.opacity = '1';
+      }, index * this.delay);
+    });
+  }
+}
+
+if (typeof window !== 'undefined') {
+  new FadeInAnimation();
+}
+</script>
 
 <div style="font-family: 'Geist', sans-serif; font-weight: 400;">
+
+<img src="data:null;," width="100%" height="0" align="left" alt="">
 
 ## <span style="font-weight: 600;">Let's connect</span>
 
@@ -87,3 +103,5 @@
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-FFFFFF?style=flat&logo=googlecloud&logoColor=4285F4&logoWidth=16)
 
 </div>
+
+<script src="src/fade-in.js"></script>
