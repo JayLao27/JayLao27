@@ -12,11 +12,12 @@ class ContributionsSVGGenerator {
   constructor(contributions = []) {
     this.contributions = contributions;
     this.colors = {
-      level0: '#ebedf0',
-      level1: '#9be9a8',
-      level2: '#40c463',
-      level3: '#30a14e',
-      level4: '#216e39'
+      level0: '#ebedf0',  // No contributions - light gray
+      level1: '#8A9AE8',  // Low - lightest blue
+      level2: '#6A7AC8',  // Mid-low - light blue
+      level3: '#4A5AA8',  // Mid - medium blue
+      level4: '#2A3A68',  // Mid-high - darker blue
+      level5: '#1A2148'    // High - darkest blue
     };
   }
 
@@ -202,10 +203,11 @@ class ContributionsSVGGenerator {
 
   getColor(count) {
     if (count === 0) return this.colors.level0;
-    if (count <= 2) return this.colors.level1;
-    if (count <= 4) return this.colors.level2;
-    if (count <= 6) return this.colors.level3;
-    return this.colors.level4;
+    if (count <= 1) return this.colors.level1;      // Low - lightest blue
+    if (count <= 3) return this.colors.level2;      // Mid-low - light blue
+    if (count <= 5) return this.colors.level3;      // Mid - medium blue
+    if (count <= 8) return this.colors.level4;      // Mid-high - darker blue
+    return this.colors.level5;                       // High - darkest blue #1A2148
   }
 
   generateAnimatedSVG(width = 800, boxSize = 12, gap = 3) {
@@ -268,7 +270,7 @@ async function main() {
     console.log(`✓ ${daysWithContributions} days with contributions (${totalContributions} total)`);
     
     const svg = generator.generateAnimatedSVG();
-    fs.writeFileSync('contributions.svg', svg);
+    fs.writeFileSync('../contributions.svg', svg);
     console.log('✓ Contributions SVG generated successfully!');
   } catch (error) {
     if (error.message.includes('rate limit') || error.message.includes('Rate limit')) {
@@ -280,7 +282,7 @@ async function main() {
       const contributions = generator.generateSampleContributions();
       generator.contributions = contributions;
       const svg = generator.generateAnimatedSVG();
-      fs.writeFileSync('contributions.svg', svg);
+      fs.writeFileSync('../contributions.svg', svg);
       console.log('✓ Contributions SVG generated with placeholder data.');
       console.log('⚠️  Note: This is placeholder data. Add GITHUB_TOKEN for real contributions.');
     } else {
@@ -289,7 +291,7 @@ async function main() {
       const contributions = generator.generateSampleContributions();
       generator.contributions = contributions;
       const svg = generator.generateAnimatedSVG();
-      fs.writeFileSync('contributions.svg', svg);
+      fs.writeFileSync('../contributions.svg', svg);
       console.log('✓ Contributions SVG generated with placeholder data.');
     }
   }
