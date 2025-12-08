@@ -1,4 +1,5 @@
-[![Jay](https://img.shields.io/badge/Jay-FFFFFF?style=flat&logoWidth=12)](https://github.com/Jaylao27) <Jay/>
+<div align="center">
+[![<Jay/>](https://img.shields.io/badge/%3CJay%2F%3E-FFFFFF?style=flat&logoWidth=12)](https://github.com/Jaylao27)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-FFFFFF?style=flat&logo=linkedin&logoColor=0077B5&logoWidth=12)](https://www.linkedin.com/in/jaylao/)
 [![Gmail](https://img.shields.io/badge/Gmail-FFFFFF?style=flat&logo=gmail&logoColor=EA4335&logoWidth=12)](cjaylao447@gmail.com)
