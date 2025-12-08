@@ -9,7 +9,6 @@
 
 ![](https://komarev.com/ghpvc/?username=Jaylao27&color=374151&style=flat-square&label=Visitors)
 </div>
----
 
 ### Core Skills & Languages
 ![Python](https://img.shields.io/badge/Python-FFFFFF?style=flat&logo=python&logoColor=3776AB&logoWidth=16)
