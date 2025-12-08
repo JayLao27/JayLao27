@@ -9,7 +9,7 @@
 
 
 ![](https://komarev.com/ghpvc/?username=Jaylao27&color=374151&style=flat-square&label=Visitors)
-
+<div>
 ---
 
 ### Core Skills & Languages
