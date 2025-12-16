@@ -26,30 +26,21 @@
 ![Keras](https://img.shields.io/badge/Keras-FFFFFF?style=flat&logo=keras&logoColor=D00000&logoWidth=16)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-FFFFFF?style=flat&logoColor=F7931E&logoWidth=16)
 ![OpenCV](https://img.shields.io/badge/OpenCV-FFFFFF?style=flat&logo=opencv&logoColor=5C3EE8&logoWidth=16)
-![pandas](https://img.shields.io/badge/pandas-FFFFFF?style=flat&logo=pandas&logoColor=150458&logoWidth=16)
 ![numpy](https://img.shields.io/badge/numpy-FFFFFF?style=flat&logo=numpy&logoColor=013243&logoWidth=16)
-![SciPy](https://img.shields.io/badge/SciPy-FFFFFF?style=flat&logoColor=8CAAE6&logoWidth=16)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-FFFFFF?style=flat&logoColor=11557C&logoWidth=16)
-![Seaborn](https://img.shields.io/badge/Seaborn-FFFFFF?style=flat&logoColor=3760A6&logoWidth=16)
 ![Jupyter](https://img.shields.io/badge/Jupyter-FFFFFF?style=flat&logo=jupyter&logoColor=F37626&logoWidth=16)
 ![HuggingFace](https://img.shields.io/badge/HuggingFace-FFFFFF?style=flat&logoColor=F99000&logoWidth=16)
-![spaCy](https://img.shields.io/badge/spaCy-FFFFFF?style=flat&logoColor=09A3BA&logoWidth=16)
-![NLTK](https://img.shields.io/badge/NLTK-FFFFFF?style=flat&logoColor=FF9900&logoWidth=16)
 ![Generative AI](https://img.shields.io/badge/Generative_AI-FFFFFF?style=flat&logoColor=8C00FF&logoWidth=16)
 
 ### Full-Stack & Web Development
 ![Next.js](https://img.shields.io/badge/Next.js-FFFFFF?style=flat&logo=next.js&logoColor=000000&logoWidth=16)
 ![Node.js](https://img.shields.io/badge/Node.js-FFFFFF?style=flat&logo=node.js&logoColor=339933&logoWidth=16)
 ![Laravel](https://img.shields.io/badge/Laravel-FFFFFF?style=flat&logo=laravel&logoColor=FF2D20&logoWidth=16)
-![Flask](https://img.shields.io/badge/Flask-FFFFFF?style=flat&logo=flask&logoColor=000000&logoWidth=16)
-![Express.js](https://img.shields.io/badge/Express.js-FFFFFF?style=flat)
-![REST API](https://img.shields.io/badge/REST_API-FFFFFF?style=flat)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-FFFFFF?style=flat&logoColor=38B2AC&logoWidth=16)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-FFFFFF?style=flat&logoColor=563D7C&logoWidth=16)
 ![Figma](https://img.shields.io/badge/Figma-FFFFFF?style=flat&logoColor=F24E1E&logoWidth=16)
 
 ### Databases & Cloud
 ![MySQL](https://img.shields.io/badge/MySQL-FFFFFF?style=flat&logo=mysql&logoColor=4479A1&logoWidth=16)
-![MongoDB](https://img.shields.io/badge/MongoDB-FFFFFF?style=flat&logo=mongodb&logoColor=47A248&logoWidth=16)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-FFFFFF?style=flat&logo=googlecloud&logoColor=4285F4&logoWidth=16)
 
