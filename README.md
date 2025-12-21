@@ -1,7 +1,6 @@
 <div align="center">
 
-[![Jay](https://img.shields.io/badge/%3CJay%2F%3E-0D1117?style=flat&logo=code&logoColor=58A6FF)](#)
-
+[![Jay](https://img.shields.io/badge/%3CJay%2F%3E-FFFFFF?style=flat&logo=github&logoColor=000000&logoWidth=12)](#)
 
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-FFFFFF?style=flat&logo=linkedin&logoColor=0077B5&logoWidth=12)](https://www.linkedin.com/in/jaylao/)
