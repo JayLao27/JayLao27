@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '20'
       - run: npm install
-      - run: npm run stats
+      - run: npm run sync-contrib
         env:
           GH_SECRET: ${{ secrets.GH_TOKEN }}
       - run: git add src/stats.json && git commit -m "chore: update stats" && git push || true
