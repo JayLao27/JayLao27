@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 import { writeFile } from "node:fs/promises";
 // biome-ignore lint/style/useImportType: necessary
-import { PulseStats } from "../src/render";
-import type { Year } from "../src/worker";
+import { PulseStats } from "../src/card";
+import type { Year } from "../src/site";
 dotenv.config();
 
 export const START_DATE = new Date();
