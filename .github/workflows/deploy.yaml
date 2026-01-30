@@ -12,6 +12,8 @@ on:
 jobs:
   run-pnpm-script:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Need this to commit
 
     steps:
       - name: checkout repository
@@ -34,4 +36,15 @@ jobs:
       - name: fetch stats
         run: pnpm sync-contrib  # contribution stats
         env:
-          GH_SECRET: ${{ secrets.GH_SECRET }} 
+          GH_SECRET: ${{ secrets.GH_SECRET }}
+
+      - name: generate SVG files
+        run: pnpm generate-svg
+
+      - name: commit SVG files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add assets/*.svg
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update contribution graphs"
+          git push 
