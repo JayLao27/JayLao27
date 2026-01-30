@@ -32,7 +32,7 @@ jobs:
         run: pnpm install 
 
       - name: fetch stats
-        run: pnpm stats  # contribution stats
+        run: pnpm sync-contrib  # contribution stats
         env:
           GH_SECRET: ${{ secrets.GH_SECRET }}
 
