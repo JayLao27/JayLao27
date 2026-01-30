@@ -3,10 +3,6 @@ import type { Year } from "./site";
 const BP_MEDIUM = 550;
 const BP_LARGE = 700;
 const BODY_COPY = `Jay Lao`
-const SOCIALS = [
-  { name: "GitHub", url: "https://github.com/JayLao27" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/jaylao" },
-];
 
 
 interface Props {
@@ -175,25 +171,6 @@ export const shared = /* css */ `
 	.link {
 		contain: content;
 		font-size: 14px;
-	}
-
-	.socials {
-		display: flex;
-		gap: 12px;
-		margin-top: 8px;
-	}
-
-	.social {
-		contain: content;
-		font-size: 12px;
-		text-decoration: none;
-		color: var(--color-text);
-		opacity: 0.7;
-		transition: opacity 0.2s ease;
-	}
-
-	.social:hover {
-		opacity: 1;
 	}
 
 	.fade-in {
