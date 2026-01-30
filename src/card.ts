@@ -268,11 +268,12 @@ export const main = (props: Props & Main) => {
 			grid-area: 1 / 1 / span 1 / span 6;
 			font-size: 18px;
 			font-weight: 300;
-		}
-		.intro span {
-			contain: content;
-			--duration: 980ms;
-			--delay: calc(var(--animate-in-copy-delay) + var(--i) * 10ms);
+		text-align: right;
+	}
+	.intro p {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
 		}
 
 		@media (width > ${BP_MEDIUM}px) {
