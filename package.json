@@ -7,7 +7,7 @@
     "start": "wrangler dev",
     "deploy": "pnpm sync-contrib && wrangler deploy",
     "format": "echo 'Prettier is no longer used'",
-    "sync-contrib": "tsm scripts/stats.ts",
+    "sync-contrib": "tsm scripts/contrib-sync.ts",
     "lint": "echo 'Linting is handled differently now'",
     "types": "tsc --noEmit"
   },
