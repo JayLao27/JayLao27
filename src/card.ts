@@ -598,6 +598,7 @@ export const fallback = (props: Props & { width: number }) => {
 		.intro {
 			font-size: 22px;
 			font-weight: 300;
+			text-align: left;
 		}
 		.intro span {
 			contain: content;
