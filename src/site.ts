@@ -1,5 +1,4 @@
-// biome-ignore lint/style/useImportType: not necessary
-import { PulseStats, fallback, link, main, top } from "./card.js";
+import { fallback, link, main, top } from "./card.js";
 import data from "./stats.json";
 
 // @ts-nocheck
