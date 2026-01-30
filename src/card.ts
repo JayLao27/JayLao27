@@ -101,7 +101,7 @@ export const shared = /* css */ `
 		--color-dot-border-light: rgba(32, 32, 32, 0.06);
 		--color-dot-border-dark: rgba(255, 255, 255, 0.06);
 		
-		--font-primary: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+		--font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 
 		/* Initial animation offset... */
 		--default-delay: 1s;
