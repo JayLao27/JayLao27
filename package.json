@@ -23,5 +23,9 @@
   "dependencies": {
     "dotenv": "^16.4.0"
   },
-  "packageManager": "pnpm@10.6.5"
+  "packageManager": "pnpm@10.6.5",
+  "run": "npm run stats",
+  "env": {
+    "GH_SECRET": "${{ secrets.GH_TOKEN }}"
+  }
 }
