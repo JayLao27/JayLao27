@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
 import { writeFile } from "node:fs/promises";
 // biome-ignore lint/style/useImportType: necessary
-import { PulseStats } from "../src/card";
-import type { Year } from "../src/site";
-dotenv.config({ override: true });
+import { PulseStats } from "../src/render";
+import type { Year } from "../src/worker";
+dotenv.config();
 
 export const START_DATE = new Date();
 START_DATE.setFullYear(START_DATE.getFullYear() - 1);
@@ -58,7 +58,7 @@ export async function request(date: { from?: Date; to?: Date }) {
 		}
 		`,
     variables: {
-      username: "JayLao",
+      username: "aidrecabrera",
       from: date.from?.toISOString(),
       to: date.to?.toISOString(),
     },
@@ -67,7 +67,7 @@ export async function request(date: { from?: Date; to?: Date }) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "User-Agent": "JayLao/readme",
+      "User-Agent": "aidrecabrera/readme",
       Authorization: `bearer ${process.env.GH_SECRET}`,
     },
     body: JSON.stringify(body),
@@ -151,8 +151,7 @@ export const fetchPulse = async (username: string): Promise<PulseStats> => {
   return data;
 };
 
-// Optional: uncomment and set your WhatPulse username to fetch pulse stats
-// const pulseData = await fetchPulse("YOUR_WHATPULSE_USERNAME");
-// await writeFile("src/pulse.json", JSON.stringify(pulseData, null, 2));
+const pulseData = await fetchPulse("svenesismar");
+await writeFile("src/pulse.json", JSON.stringify(pulseData, null, 2));
 
 console.log("...Done");
