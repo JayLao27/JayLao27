@@ -1,0 +1,8 @@
+name = "jaylao"
+main = "src/site.ts"
+compatibility_date = "2023-11-21"
+
+# Visitor counter (create with: pnpm wrangler kv:namespace create VISITOR_KV)
+# [[kv_namespaces]]
+# binding = "VISITOR_KV"
+# id = "<YOUR_KV_NAMESPACE_ID>"

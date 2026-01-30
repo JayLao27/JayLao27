@@ -1,0 +1,27 @@
+{
+  "name": "jaylao27",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "pnpm stats && wrangler deploy",
+    "format": "echo 'Prettier is no longer used'",
+    "stats": "tsm --env-file .env scripts/stats.ts",
+    "lint": "echo 'Linting is handled differently now'",
+    "types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "@types/node": "^20.11.2",
+    "prettier": "^3.2.2",
+    "tsm": "^2.3.0",
+    "typescript": "^5.3.3",
+    "wrangler": "^4.4.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.0"
+  },
+  "packageManager": "pnpm@10.6.5"
+}
