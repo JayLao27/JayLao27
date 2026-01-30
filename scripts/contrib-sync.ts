@@ -66,7 +66,7 @@ export async function request(date: { from?: Date; to?: Date }) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "User-Agent": "jaylao27/readme",
+      "User-Agent": "JayLao27/readme",
       Authorization: `bearer ${process.env.GH_SECRET}`,
     },
     body: JSON.stringify(body),
