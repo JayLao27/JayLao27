@@ -125,7 +125,7 @@ async function getAllContributions(start: Date, end = new Date()) {
       days: data.weeks
         .flatMap((week) =>
           week.contributionDays.map((day) => levelToInt(day.contributionLevel))
-        )
+        ) //
         .reverse(),
     });
     cursor = next;
