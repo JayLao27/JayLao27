@@ -10,6 +10,3 @@
 
 ---
 
-<p align="center">
-  <i>This profile is automatically updated every 12 hours with my latest GitHub contributions</i>
-</p>
