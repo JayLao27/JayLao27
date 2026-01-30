@@ -36,8 +36,8 @@ jobs:
         env:
           GH_SECRET: ${{ secrets.GH_SECRET }}
 
-      - name: deploy
-        uses: cloudflare/wrangler-action@v3.7.0
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }} 
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} 
+      # - name: deploy
+      #   uses: cloudflare/wrangler-action@v3.7.0
+      #   with:
+      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }} 
+      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} 
