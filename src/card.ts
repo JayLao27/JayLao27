@@ -2,7 +2,7 @@ import type { Year } from "./site";
 
 const BP_MEDIUM = 550;
 const BP_LARGE = 700;
-const BODY_COPY = `Jay Lao— I am dedicated and curious that enhances my skills to growth'
+const BODY_COPY = `Jay Lao— I am dedicated and curious that enhances my skills to growth`
 
 
 interface Props {
