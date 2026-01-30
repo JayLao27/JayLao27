@@ -408,9 +408,6 @@ export const main = (props: Props & Main) => {
 				<p>${BODY_COPY.split("")
           .map((c, i) => `<span class="fade-in" style="--i: ${i};">${c}</span>`)
           .join("")}</p>
-				<div class="socials">
-					${SOCIALS.map((social, i) => `<a href="${social.url}" target="_blank" rel="noopener" class="social fade-in" style="--i: ${BODY_COPY.length + i};">${social.name}</a>`).join("")}
-				</div>
 			</article>
 			<article class="graph">
 				<div class="years" style="--w: ${props.length}; --h: ${props.sizes[0][1]};">
