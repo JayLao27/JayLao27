@@ -1,0 +1,21 @@
+name: Update Stats
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run stats
+        env:
+          GH_SECRET: ${{ secrets.GH_TOKEN }}
+      - run: git add src/stats.json && git commit -m "chore: update stats" && git push || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
