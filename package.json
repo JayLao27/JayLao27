@@ -7,7 +7,7 @@
     "start": "wrangler dev",
     "deploy": "pnpm stats && wrangler deploy",
     "format": "echo 'Prettier is no longer used'",
-    "stats": "tsm --env-file .env scripts/stats.ts",
+    "stats": "tsm scripts/stats.ts",
     "lint": "echo 'Linting is handled differently now'",
     "types": "tsc --noEmit"
   },

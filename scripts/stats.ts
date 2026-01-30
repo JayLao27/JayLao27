@@ -3,7 +3,7 @@ import { writeFile } from "node:fs/promises";
 // biome-ignore lint/style/useImportType: necessary
 import { PulseStats } from "../src/card";
 import type { Year } from "../src/site";
-dotenv.config();
+dotenv.config({ override: true });
 
 export const START_DATE = new Date();
 START_DATE.setFullYear(START_DATE.getFullYear() - 1);
