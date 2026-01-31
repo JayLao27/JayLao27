@@ -291,9 +291,6 @@ export const main = (props: Props & Main) => {
 		.graph {
 			--delay: var(--animate-in-graph-delay);
 			grid-area: 2 / 1 / span 1 / span 6;
-			overflow: hidden;
-			container-type: inline-size;
-			position: relative;
 		}
 
 		.years {
@@ -367,99 +364,6 @@ export const main = (props: Props & Main) => {
 		.dot--2 { background-color: var(--color-dot-bg-2); }
 		.dot--3 { background-color: var(--color-dot-bg-3); }
 		.dot--4 { background-color: var(--color-dot-bg-4); }
-
-		/* Pac-Man styles */
-		.pacman-container {
-			position: absolute;
-			z-index: 10;
-			pointer-events: none;
-			animation: pacman-move calc(30s + (var(--_w) * 0.06s)) linear infinite;
-			animation-delay: 2s;
-		}
-
-		.pacman {
-			width: calc(var(--size-dot) * 2.5 * 1px);
-			height: calc(var(--size-dot) * 2.5 * 1px);
-			background-color: #FFD700;
-			border-radius: 50%;
-			position: relative;
-			animation: pacman-chomp 0.5s infinite;
-			box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-		}
-
-		.pacman::before {
-			content: '';
-			position: absolute;
-			top: 50%;
-			left: 0;
-			width: 0;
-			height: 0;
-			border-left: calc(var(--size-dot) * 1.25 * 1px) solid var(--color-background);
-			border-top: calc(var(--size-dot) * 0.625 * 1px) solid transparent;
-			border-bottom: calc(var(--size-dot) * 0.625 * 1px) solid transparent;
-			transform-origin: left center;
-			animation: pacman-mouth-top 0.5s infinite;
-		}
-
-		.pacman::after {
-			content: '';
-			position: absolute;
-			top: 50%;
-			left: 0;
-			width: 0;
-			height: 0;
-			border-left: calc(var(--size-dot) * 1.25 * 1px) solid var(--color-background);
-			border-top: calc(var(--size-dot) * 0.625 * 1px) solid transparent;
-			border-bottom: calc(var(--size-dot) * 0.625 * 1px) solid transparent;
-			transform-origin: left center;
-			animation: pacman-mouth-bottom 0.5s infinite;
-		}
-
-		.pacman-eye {
-			position: absolute;
-			top: 25%;
-			left: 40%;
-			width: calc(var(--size-dot) * 0.3 * 1px);
-			height: calc(var(--size-dot) * 0.3 * 1px);
-			background-color: #000;
-			border-radius: 50%;
-		}
-
-		@keyframes pacman-move {
-			0% {
-				transform: translateX(60px) translateY(0);
-			}
-			100% {
-				transform: translateX(calc(-100% + 100cqw)) translateY(0);
-			}
-		}
-
-		@keyframes pacman-chomp {
-			0%, 100% {
-				clip-path: polygon(100% 50%, 0 0, 0 100%);
-			}
-			50% {
-				clip-path: polygon(100% 50%, 0 20%, 0 80%);
-			}
-		}
-
-		@keyframes pacman-mouth-top {
-			0%, 100% {
-				transform: rotate(-30deg);
-			}
-			50% {
-				transform: rotate(0deg);
-			}
-		}
-
-		@keyframes pacman-mouth-bottom {
-			0%, 100% {
-				transform: rotate(30deg);
-			}
-			50% {
-				transform: rotate(0deg);
-			}
-		}
 	`;
 
   const format = (date: Date) =>
@@ -484,11 +388,6 @@ export const main = (props: Props & Main) => {
 			</article>
 			<article class="graph">
 				<div class="years" style="--w: ${props.length}; --h: ${props.sizes[0][1]};">
-					<div class="pacman-container" style="top: calc(var(--size-dot) * 2 * 1px);">
-						<div class="pacman">
-							<div class="pacman-eye"></div>
-						</div>
-					</div>
 					${props.years
             .map(
               (year, i) => /* html */ `
