@@ -48,12 +48,6 @@ async function generateSVGs() {
   });
   await writeFile("assets/contribution-graph-dark.svg", mainDark);
 
-  // Top stats banner
-  const topLight = top({ height: 20, contributions: data.contributions, theme: "light", visitorCount: 0 });
-  await writeFile("assets/stats-light.svg", topLight);
-
-  const topDark = top({ height: 20, contributions: data.contributions, theme: "dark", visitorCount: 0 });
-  await writeFile("assets/stats-dark.svg", topDark);
 
   console.log(" SVG files generated in assets/");
 }
