@@ -6,9 +6,6 @@
 </picture>
 
 <div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-@JayLao27-black?style=flat&logo=github)](https://github.com/JayLao27)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-jaylao-blue?style=flat&logo=linkedin)](https://linkedin.com/in/jaylao)
-
 </div>
 
