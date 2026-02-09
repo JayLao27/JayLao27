@@ -31,6 +31,7 @@ async function generateSVGs() {
     sizes,
     length,
     location: { city: "Davao", country: "Philippines" },
+    contributions: data.contributions,
     theme: "light",
     ...options,
   });
@@ -43,6 +44,7 @@ async function generateSVGs() {
     sizes,
     length,
     location: { city: "Davao", country: "Philippines" },
+    contributions: data.contributions,
     theme: "dark",
     ...options,
   });

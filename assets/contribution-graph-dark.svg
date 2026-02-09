@@ -201,48 +201,49 @@
 				--size-dot-gap: 5;
 				--size-dot: 24;
 				--size-year-gap: 5;
-				--size-label-height: 16;
+				--size-label-height: 0;
 				--font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 			}
 
 			[data-theme="dark"] {
-				--color-card-bg: #0c111b;
-				--color-panel: rgba(16, 22, 35, 0.92);
-				--color-border: rgba(255, 255, 255, 0.08);
-				--color-muted: rgba(255, 255, 255, 0.62);
-				--color-accent: #ffd54f;
-				--color-glow: rgba(255, 213, 79, 0.2);
+				--color-card-bg: linear-gradient(135deg, #0a0e27 0%, #1a1b3e 50%, #0f1935 100%);
+				--color-panel: rgba(255, 255, 255, 0.05);
+				--color-border: rgba(255, 255, 255, 0.12);
+				--color-muted: #a0aec0;
+				--color-title-1: #667eea;
+				--color-title-2: #764ba2;
+				--color-dot-bg-0: rgba(102, 126, 234, 0.12);
+				--color-dot-bg-1: rgba(102, 126, 234, 0.3);
+				--color-dot-bg-2: rgba(102, 126, 234, 0.5);
+				--color-dot-bg-3: rgba(102, 126, 234, 0.7);
+				--color-dot-bg-4: #667eea;
+				--color-dot-border: rgba(255, 255, 255, 0.08);
 			}
 
 			[data-theme="light"] {
-				--color-card-bg: #f7f7fb;
-				--color-panel: #ffffff;
-				--color-border: rgba(0, 0, 0, 0.08);
-				--color-muted: rgba(0, 0, 0, 0.55);
-				--color-accent: #b8860b;
-				--color-glow: rgba(184, 134, 11, 0.2);
+				--color-card-bg: linear-gradient(135deg, #f3f5ff 0%, #eef0ff 50%, #f7f7fb 100%);
+				--color-panel: rgba(255, 255, 255, 0.9);
+				--color-border: rgba(100, 116, 139, 0.2);
+				--color-muted: rgba(30, 41, 59, 0.6);
+				--color-title-1: #4c6fff;
+				--color-title-2: #7c4dff;
+				--color-dot-bg-0: rgba(99, 102, 241, 0.1);
+				--color-dot-bg-1: rgba(99, 102, 241, 0.25);
+				--color-dot-bg-2: rgba(99, 102, 241, 0.45);
+				--color-dot-bg-3: rgba(99, 102, 241, 0.7);
+				--color-dot-bg-4: #6366f1;
+				--color-dot-border: rgba(15, 23, 42, 0.1);
 			}
 
 			.wrapper {
 				display: grid;
 				grid-template-rows: auto auto 1fr;
-				gap: 16px;
-				padding: 18px 20px;
+				gap: 18px;
+				padding: 24px 24px 20px;
 				background: var(--color-card-bg);
-				border-radius: 16px;
+				border-radius: 24px;
 				position: relative;
 				overflow: hidden;
-			}
-
-			.wrapper::before {
-				content: "";
-				position: absolute;
-				inset: -30% -10% auto;
-				height: 65%;
-				background: radial-gradient(circle at 20% 20%, var(--color-glow), transparent 60%),
-					radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.08), transparent 55%);
-				opacity: 0.7;
-				pointer-events: none;
 			}
 
 			.wrapper > * {
@@ -250,76 +251,85 @@
 				z-index: 1;
 			}
 
-			.galaxy__header {
-				display: flex;
-				align-items: flex-end;
-				justify-content: space-between;
-				gap: 16px;
-			}
-
-			.galaxy__title {
+			.header {
 				display: grid;
-				gap: 6px;
+				gap: 8px;
+				text-align: center;
 			}
 
-			.galaxy__eyebrow {
-				font-size: 11px;
+			.header__title {
+				font-size: 30px;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				background: linear-gradient(135deg, var(--color-title-1), var(--color-title-2));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				text-fill-color: transparent;
+			}
+
+			.header__tagline {
+				font-size: 12px;
 				letter-spacing: 0.22em;
 				text-transform: uppercase;
 				color: var(--color-muted);
 			}
 
-			.galaxy__name {
-				font-size: 22px;
-				font-weight: 600;
-			}
-
-			.galaxy__meta {
-				display: grid;
-				gap: 6px;
-				text-align: right;
-				font-size: 12px;
-				color: var(--color-muted);
-			}
-
-			.galaxy__stats {
+			.stats-grid {
 				display: grid;
 				grid-template-columns: repeat(4, minmax(0, 1fr));
-				gap: 10px;
+				gap: 12px;
 			}
 
-			.stat {
+			.stat-card {
 				background: var(--color-panel);
 				border: 1px solid var(--color-border);
-				border-radius: 12px;
-				padding: 10px 12px;
+				border-radius: 18px;
+				padding: 14px 16px;
 				display: grid;
-				gap: 4px;
+				gap: 6px;
 			}
 
-			.stat__label {
-				font-size: 11px;
-				letter-spacing: 0.16em;
+			.stat-label {
+				font-size: 10px;
+				letter-spacing: 0.18em;
 				text-transform: uppercase;
 				color: var(--color-muted);
 			}
 
-			.stat__value {
-				font-size: 18px;
-				font-weight: 600;
+			.stat-value {
+				font-size: 20px;
+				font-weight: 700;
+				background: linear-gradient(135deg, var(--color-title-1), var(--color-title-2));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				text-fill-color: transparent;
 			}
 
-			.galaxy__map {
+			.contribution-galaxy {
 				display: grid;
-				gap: 10px;
+				gap: 14px;
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid var(--color-border);
+				border-radius: 24px;
+				padding: 18px 18px 14px;
 			}
 
-			.map__frame {
+			.galaxy-title {
+				font-size: 18px;
+				text-align: center;
+				color: var(--color-text);
+			}
+
+			.heatmap-wave {
+				display: grid;
+				overflow: hidden;
+				border-radius: 16px;
 				background: var(--color-panel);
 				border: 1px solid var(--color-border);
-				border-radius: 14px;
-				padding: 12px;
-				overflow: hidden;
+				padding: 14px 12px 10px;
 			}
 
 			.years {
@@ -342,14 +352,7 @@
 			}
 
 			.year__label {
-				contain: strict;
-				block-size: calc(var(--size-label-height) * 1px);
-				content-visibility: auto;
-				display: flex;
-				align-items: end;
-				font-size: 11px;
-				color: var(--color-muted);
-				letter-spacing: 0.08em;
+				display: none;
 			}
 
 			.year__days {
@@ -381,13 +384,15 @@
 			.dot--1 { background-color: var(--color-dot-bg-1); }
 			.dot--2 { background-color: var(--color-dot-bg-2); }
 			.dot--3 { background-color: var(--color-dot-bg-3); }
-			.dot--4 { background-color: var(--color-dot-bg-4); }
+			.dot--4 {
+				background: linear-gradient(135deg, var(--color-title-1), var(--color-title-2));
+			}
 
 			.legend {
 				display: flex;
 				align-items: center;
-				justify-content: flex-end;
-				gap: 8px;
+				justify-content: center;
+				gap: 10px;
 				font-size: 11px;
 				color: var(--color-muted);
 			}
@@ -399,46 +404,41 @@
 			}
 
 			@media (width <= 550px) {
-				.galaxy__name {
-					font-size: 20px;
+				.header__title {
+					font-size: 24px;
 				}
-				.galaxy__stats {
+				.stats-grid {
 					grid-template-columns: repeat(2, minmax(0, 1fr));
 				}
 			}
 		</style>
 					
 			<main class="wrapper">
-				<header class="galaxy__header">
-					<div class="galaxy__title">
-						<span class="galaxy__eyebrow">Contribution Galaxy</span>
-						<div class="galaxy__name">Jay Lao</div>
-					</div>
-					<div class="galaxy__meta">
-						<div>Davao, Philippines</div>
-						<div>2026 - 2025</div>
-					</div>
+				<header class="header">
+					<div class="header__title">Jay Lao</div>
+					<div class="header__tagline">CODE * CREATE * CONTRIBUTE</div>
 				</header>
-				<section class="galaxy__stats">
-					<div class="stat">
-						<div class="stat__label">Active days</div>
-						<div class="stat__value">259</div>
+				<section class="stats-grid">
+					<div class="stat-card">
+						<div class="stat-value">1,362</div>
+						<div class="stat-label">Total Contributions</div>
 					</div>
-					<div class="stat">
-						<div class="stat__label">Total days</div>
-						<div class="stat__value">367</div>
+					<div class="stat-card">
+						<div class="stat-value">0</div>
+						<div class="stat-label">Day Streak</div>
 					</div>
-					<div class="stat">
-						<div class="stat__label">Current streak</div>
-						<div class="stat__value">0</div>
+					<div class="stat-card">
+						<div class="stat-value">—</div>
+						<div class="stat-label">Repositories</div>
 					</div>
-					<div class="stat">
-						<div class="stat__label">Longest streak</div>
-						<div class="stat__value">64</div>
+					<div class="stat-card">
+						<div class="stat-value">—</div>
+						<div class="stat-label">Profile Views</div>
 					</div>
 				</section>
-				<section class="galaxy__map">
-					<div class="map__frame">
+				<section class="contribution-galaxy">
+					<div class="galaxy-title">Contribution Galaxy</div>
+					<div class="heatmap-wave">
 						<div class="years" style="--w: 1793; --h: 169;">
 							
 								<div class="year year--0" style="--w: 198; --h: 169;">
