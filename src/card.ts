@@ -23,16 +23,14 @@
 		""
 	);
 
-	const svg = (styles: string, html: string, attributes: Attributes) => {
+	const svg = (defs: string, content: string, attributes: Attributes) => {
 	if (!attributes.width) attributes.width = "100%";
 	return /*html*/ `
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" ${attr(attributes)}>
-			<foreignObject width="100%" height="100%">
-				<div xmlns="http://www.w3.org/1999/xhtml">
-					<style>${styles}</style>
-					${html}
-				</div>
-			</foreignObject>
+			<defs>
+				${defs}
+			</defs>
+			${content}
 		</svg>`;
 	};
 
@@ -246,228 +244,6 @@
 	};
 
 	export const main = (props: Props & Main) => {
-	const styles = /*css*/ `
-			${shared}
-
-			:root {
-				--rows: ${props.dots.rows};
-				--size-width: 100cqw;
-				--size-height: ${props.height};
-				--size-dot-gap: ${props.dots.gap};
-				--size-dot: ${props.dots.size};
-				--size-year-gap: ${props.year.gap};
-				--size-label-height: 0;
-				--font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-			}
-
-			[data-theme="dark"] {
-				--color-card-bg: linear-gradient(135deg, #0a0e27 0%, #1a1b3e 50%, #0f1935 100%);
-				--color-panel: rgba(255, 255, 255, 0.05);
-				--color-border: rgba(255, 255, 255, 0.12);
-				--color-muted: #a0aec0;
-				--color-title-1: #667eea;
-				--color-title-2: #764ba2;
-				--color-dot-bg-0: rgba(102, 126, 234, 0.12);
-				--color-dot-bg-1: rgba(102, 126, 234, 0.3);
-				--color-dot-bg-2: rgba(102, 126, 234, 0.5);
-				--color-dot-bg-3: rgba(102, 126, 234, 0.7);
-				--color-dot-bg-4: #667eea;
-				--color-dot-border: rgba(255, 255, 255, 0.08);
-			}
-
-			[data-theme="light"] {
-				--color-card-bg: linear-gradient(135deg, #f3f5ff 0%, #eef0ff 50%, #f7f7fb 100%);
-				--color-panel: rgba(255, 255, 255, 0.9);
-				--color-border: rgba(100, 116, 139, 0.2);
-				--color-muted: rgba(30, 41, 59, 0.6);
-				--color-title-1: #4c6fff;
-				--color-title-2: #7c4dff;
-				--color-dot-bg-0: rgba(99, 102, 241, 0.1);
-				--color-dot-bg-1: rgba(99, 102, 241, 0.25);
-				--color-dot-bg-2: rgba(99, 102, 241, 0.45);
-				--color-dot-bg-3: rgba(99, 102, 241, 0.7);
-				--color-dot-bg-4: #6366f1;
-				--color-dot-border: rgba(15, 23, 42, 0.1);
-			}
-
-			.wrapper {
-				display: grid;
-				grid-template-rows: auto auto 1fr;
-				gap: 18px;
-				padding: 24px 24px 20px;
-				background: var(--color-card-bg);
-				border-radius: 24px;
-				position: relative;
-				overflow: hidden;
-			}
-
-			.wrapper > * {
-				position: relative;
-				z-index: 1;
-			}
-
-			.header {
-				display: grid;
-				gap: 8px;
-				text-align: center;
-			}
-
-			.header__title {
-				font-size: 30px;
-				font-weight: 700;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				background: linear-gradient(135deg, var(--color-title-1), var(--color-title-2));
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
-				text-fill-color: transparent;
-			}
-
-			.header__tagline {
-				font-size: 12px;
-				letter-spacing: 0.22em;
-				text-transform: uppercase;
-				color: var(--color-muted);
-			}
-
-			.stats-grid {
-				display: grid;
-				grid-template-columns: repeat(4, minmax(0, 1fr));
-				gap: 12px;
-			}
-
-			.stat-card {
-				background: var(--color-panel);
-				border: 1px solid var(--color-border);
-				border-radius: 18px;
-				padding: 14px 16px;
-				display: grid;
-				gap: 6px;
-			}
-
-			.stat-label {
-				font-size: 10px;
-				letter-spacing: 0.18em;
-				text-transform: uppercase;
-				color: var(--color-muted);
-			}
-
-			.stat-value {
-				font-size: 20px;
-				font-weight: 700;
-				background: linear-gradient(135deg, var(--color-title-1), var(--color-title-2));
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
-				text-fill-color: transparent;
-			}
-
-			.contribution-galaxy {
-				display: grid;
-				gap: 14px;
-				background: rgba(255, 255, 255, 0.03);
-				border: 1px solid var(--color-border);
-				border-radius: 24px;
-				padding: 18px 18px 14px;
-			}
-
-			.galaxy-title {
-				font-size: 18px;
-				text-align: center;
-				color: var(--color-text);
-			}
-
-			.heatmap-wave {
-				display: grid;
-				overflow: hidden;
-				border-radius: 16px;
-				background: var(--color-panel);
-				border: 1px solid var(--color-border);
-				padding: 14px 12px 10px;
-			}
-
-			.years {
-				--_w: var(--w);
-				--_h: calc(var(--h) + var(--size-label-height));
-
-				display: flex;
-				gap: calc(var(--size-year-gap) * 1px);
-				contain: strict;
-				inline-size: calc(var(--_w) * 1px);
-				block-size: calc(var(--_h) * 1px);
-				transform: translateX(min(0px, calc(100cqw - (var(--_w) * 1px))));
-			}
-
-			.year {
-				contain: strict;
-				content-visibility: auto;
-				inline-size: calc(var(--w) * 1px);
-				block-size: calc(var(--_h) * 1px);
-			}
-
-			.year__label {
-				display: none;
-			}
-
-			.year__days {
-				contain: content;
-				display: grid;
-				grid-auto-flow: column;
-				grid-template-rows: repeat(var(--rows), calc(var(--size-dot) * 1px));
-				grid-auto-columns: calc(var(--size-dot) * 1px);
-				gap: calc(var(--size-dot-gap) * 1px);
-				contain: strict;
-				content-visibility: auto;
-				inline-size: calc(var(--w) * 1px);
-				block-size: calc(var(--h) * 1px);
-			}
-
-			.year__days .dot,
-			.legend .dot {
-				contain: strict;
-				content-visibility: auto;
-				display: inline-block;
-				aspect-ratio: 1;
-				inline-size: calc(var(--size-dot) * 1px);
-				block-size: calc(var(--size-dot) * 1px);
-				border: calc(var(--size-dot) * 0.075 * 1px) solid var(--color-dot-border);
-				border-radius: calc(var(--size-dot) * 0.15 * 1px);
-			}
-
-			.dot--0 { background-color: var(--color-dot-bg-0); }
-			.dot--1 { background-color: var(--color-dot-bg-1); }
-			.dot--2 { background-color: var(--color-dot-bg-2); }
-			.dot--3 { background-color: var(--color-dot-bg-3); }
-			.dot--4 {
-				background: linear-gradient(135deg, var(--color-title-1), var(--color-title-2));
-			}
-
-			.legend {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 10px;
-				font-size: 11px;
-				color: var(--color-muted);
-			}
-
-			.legend__dots {
-				display: inline-flex;
-				gap: 4px;
-				align-items: center;
-			}
-
-			@media (width <= ${BP_MEDIUM}px) {
-				.header__title {
-					font-size: 24px;
-				}
-				.stats-grid {
-					grid-template-columns: repeat(2, minmax(0, 1fr));
-				}
-			}
-		`;
-
 	const allDays = props.years.flatMap((year) => year.days);
 	const totalDays = allDays.length;
 	const activeDays = allDays.filter((level) => level > 0).length;
@@ -509,77 +285,126 @@
 	const formatNumber = (value: number) => value.toLocaleString("en-US");
 	const totalContributions = props.contributions ?? activeDays;
 	const repoLabel = props.repositories ? formatNumber(props.repositories) : "—";
-	const visitorLabel = props.visitorCount ? formatVisitorCount(props.visitorCount) : "—";
+	const visitorLabel = props.visitorCount ? formatVisitorCountSvg(props.visitorCount) : "—";
 
-	const format = (date: Date) =>
-		date.toLocaleDateString("en-US", {
-		year: "numeric",
-		month: "short",
-		day: "numeric",
+	// Theme-specific colors
+	const isDark = props.theme === "dark";
+	const colors = isDark
+		? {
+			bg: "#0a0e27",
+			cardBg: "rgba(255, 255, 255, 0.05)",
+			border: "rgba(255, 255, 255, 0.12)",
+			text: "#cbd5e0",
+			muted: "#a0aec0",
+			gradStart: "#667eea",
+			gradEnd: "#764ba2",
+			dots: ["rgba(102, 126, 234, 0.12)", "rgba(102, 126, 234, 0.3)", "rgba(102, 126, 234, 0.5)", "rgba(102, 126, 234, 0.7)", "#667eea"],
+		}
+		: {
+			bg: "#f3f5ff",
+			cardBg: "rgba(255, 255, 255, 0.9)",
+			border: "rgba(100, 116, 139, 0.2)",
+			text: "#0f172a",
+			muted: "#64748b",
+			gradStart: "#4c6fff",
+			gradEnd: "#7c4dff",
+			dots: ["rgba(99, 102, 241, 0.1)", "rgba(99, 102, 241, 0.25)", "rgba(99, 102, 241, 0.45)", "rgba(99, 102, 241, 0.7)", "#6366f1"],
+		};
+
+	let svgContent = "";
+	let y = 24;
+
+	// Header
+	svgContent += `<text x="50%" y="${y + 26}" font-size="30" font-weight="700" text-anchor="middle" letter-spacing="0.08em" fill="url(#gradient)" text-transform="uppercase">${BODY_COPY}</text>`;
+	y += 48;
+
+	svgContent += `<text x="50%" y="${y + 12}" font-size="12" text-anchor="middle" letter-spacing="0.22em" fill="${colors.muted}" text-transform="uppercase">CODE * CREATE * CONTRIBUTE</text>`;
+	y += 32;
+
+	// Stats cards - 4 columns
+	const statWidth = 68;
+	const statHeight = 66;
+	const statGap = 12;
+	const statsY = y;
+	const stats = [
+		{ value: formatNumber(totalContributions), label: "Total Contributions" },
+		{ value: formatNumber(currentStreak), label: "Day Streak" },
+		{ value: repoLabel, label: "Repositories" },
+		{ value: visitorLabel, label: "Profile Views" },
+	];
+
+	const statsStartX = (props.width ?? 498 - 48) / 2 - (statWidth * 4 + statGap * 3) / 2 + 24;
+
+	stats.forEach((stat, i) => {
+		const x = statsStartX + i * (statWidth + statGap);
+		
+		// Card background
+		svgContent += `<rect x="${x}" y="${statsY}" width="${statWidth}" height="${statHeight}" rx="8" fill="${colors.cardBg}" stroke="${colors.border}" stroke-width="1"/>`;
+		
+		// Value
+		svgContent += `<text x="${x + statWidth / 2}" y="${statsY + 28}" font-size="16" font-weight="700" text-anchor="middle" fill="url(#gradient)">${stat.value}</text>`;
+		
+		// Label
+		svgContent += `<text x="${x + statWidth / 2}" y="${statsY + 50}" font-size="8" text-anchor="middle" letter-spacing="0.08em" fill="${colors.muted}" text-transform="uppercase">${stat.label}</text>`;
+	});
+
+	y = statsY + statHeight + 20;
+
+	// Contribution Galaxy Title
+	svgContent += `<text x="50%" y="${y + 12}" font-size="14" font-weight="600" text-anchor="middle" fill="${colors.text}">Contribution Galaxy</text>`;
+	y += 30;
+
+	// Heatmap container
+	const heatmapX = 32;
+	const heatmapY = y;
+	const heatmapHeight = 80;
+	const dotSize = 10;
+	const dotGap = 2;
+
+	svgContent += `<rect x="${heatmapX}" y="${heatmapY}" width="440" height="${heatmapHeight}" rx="12" fill="${colors.cardBg}" stroke="${colors.border}" stroke-width="1"/>`;
+
+	// Heatmap dots
+	let dotX = heatmapX + 8;
+	let dotY = heatmapY + 8;
+	const dotsPerRow = 7;
+	let dotCount = 0;
+
+	props.years.forEach((year) => {
+		year.days.forEach((level) => {
+			if (dotCount % dotsPerRow === 0 && dotCount > 0) {
+				dotX = heatmapX + 8;
+				dotY += dotSize + dotGap;
+			}
+
+			const dotColor = colors.dots[Math.min(level, 4)];
+			svgContent += `<rect x="${dotX}" y="${dotY}" width="${dotSize}" height="${dotSize}" rx="2" fill="${dotColor}" stroke="${isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.1)"}" stroke-width="0.5"/>`;
+			dotX += dotSize + dotGap;
+			dotCount++;
 		});
+	});
 
-	const date = (i: number) =>
-		i === 0 ? format(new Date()) : new Date(props.years[i].from).getFullYear();
+	y = heatmapY + heatmapHeight + 12;
 
-	const days = (days: Year["days"]) =>
-		days.map((level) => `<div class="dot dot--${level}"></div>`).join("");
+	// Legend
+	const legendY = y;
+	svgContent += `<text x="50%" y="${legendY + 10}" font-size="10" text-anchor="middle" fill="${colors.muted}">Less</text>`;
 
-	const html = /* html */ `
-			<main class="wrapper">
-				<header class="header">
-					<div class="header__title">${BODY_COPY}</div>
-					<div class="header__tagline">CODE * CREATE * CONTRIBUTE</div>
-				</header>
-				<section class="stats-grid">
-					<div class="stat-card">
-						<div class="stat-value">${formatNumber(totalContributions)}</div>
-						<div class="stat-label">Total Contributions</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-value">${formatNumber(currentStreak)}</div>
-						<div class="stat-label">Day Streak</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-value">${repoLabel}</div>
-						<div class="stat-label">Repositories</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-value">${visitorLabel}</div>
-						<div class="stat-label">Profile Views</div>
-					</div>
-				</section>
-				<section class="contribution-galaxy">
-					<div class="galaxy-title">Contribution Galaxy</div>
-					<div class="heatmap-wave">
-						<div class="years" style="--w: ${props.length}; --h: ${props.sizes[0][1]};">
-							${props.years
-			.map(
-			(year, i) => /* html */ `
-								<div class="year year--${i}" style="--w: ${props.sizes[i][0]}; --h: ${props.sizes[i][1]};">
-									<div class="year__days">${days(year.days)}</div>
-									<div class="year__label"><span>${date(i)}</span></div>
-								</div>
-							`
-			)
-			.join("")}
-						</div>
-					</div>
-					<div class="legend">
-						<span>Less</span>
-						<span class="legend__dots">
-							<span class="dot dot--0"></span>
-							<span class="dot dot--1"></span>
-							<span class="dot dot--2"></span>
-							<span class="dot dot--3"></span>
-							<span class="dot dot--4"></span>
-						</span>
-						<span>More</span>
-					</div>
-				</section>
-			</main>
-		`;
+	const legendDotsStartX = (props.width ?? 498) / 2 - (dotSize * 5 + dotGap * 4) / 2 - 20;
+	for (let i = 0; i < 5; i++) {
+		const dotColor = colors.dots[i];
+		svgContent += `<rect x="${legendDotsStartX + i * (dotSize + dotGap)}" y="${legendY - 4}" width="${dotSize}" height="${dotSize}" rx="1.5" fill="${dotColor}" stroke="${isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.1)"}" stroke-width="0.5"/>`;
+	}
 
-	return svg(styles, html, {
+	svgContent += `<text x="${legendDotsStartX + (5 * (dotSize + dotGap)) + 8}" y="${legendY + 10}" font-size="10" text-anchor="start" fill="${colors.muted}">More</text>`;
+
+	const defs = `
+		<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+			<stop offset="0%" style="stop-color:${colors.gradStart};stop-opacity:1" />
+			<stop offset="100%" style="stop-color:${colors.gradEnd};stop-opacity:1" />
+		</linearGradient>
+	`;
+
+	return svg(defs, `<svg width="100%" height="${props.height}" viewBox="0 0 ${props.width ?? 498} ${props.height}" xmlns="http://www.w3.org/2000/svg">${svgContent}</svg>`, {
 		height: `${props.height}`,
 		"data-theme": `${props.theme}`,
 	});
@@ -592,9 +417,10 @@
 	return String(n);
 	};
 
+	const formatVisitorCountSvg = formatVisitorCount;
+
 	export const top = (
 	props: Props & { contributions: number; visitorCount?: number },
-	pulse?: PulseStats
 	) => {
 	const visitorCount = props.visitorCount ?? 0;
 	const visitorLabel = visitorCount > 0 ? `${formatVisitorCount(visitorCount)} profile views` : "profile views";
