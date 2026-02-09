@@ -287,117 +287,121 @@
 	const repoLabel = props.repositories ? formatNumber(props.repositories) : "—";
 	const visitorLabel = props.visitorCount ? formatVisitorCountSvg(props.visitorCount) : "—";
 
-	// Theme-specific colors
+	// Theme-specific colors (grayscale palette)
 	const isDark = props.theme === "dark";
 	const colors = isDark
 		? {
-			bg: "#0a0e27",
-			cardBg: "rgba(255, 255, 255, 0.05)",
-			border: "rgba(255, 255, 255, 0.12)",
-			text: "#cbd5e0",
-			muted: "#a0aec0",
-			gradStart: "#667eea",
-			gradEnd: "#764ba2",
-			dots: ["rgba(102, 126, 234, 0.12)", "rgba(102, 126, 234, 0.3)", "rgba(102, 126, 234, 0.5)", "rgba(102, 126, 234, 0.7)", "#667eea"],
+			bg: "#202020",
+			cardBg: "#202020",
+			border: "rgba(255, 255, 255, 0.06)",
+			text: "#ffffff",
+			muted: "#ffffff",
+			dotBorder: "rgba(255, 255, 255, 0.06)",
+			gradStart: "#ffffff",
+			gradEnd: "#ffffff",
+			dots: ["#262626", "#404040", "#686868", "#a0a0a0", "#ffffff"],
 		}
 		: {
-			bg: "#f3f5ff",
-			cardBg: "rgba(255, 255, 255, 0.9)",
-			border: "rgba(100, 116, 139, 0.2)",
-			text: "#0f172a",
-			muted: "#64748b",
-			gradStart: "#4c6fff",
-			gradEnd: "#7c4dff",
-			dots: ["rgba(99, 102, 241, 0.1)", "rgba(99, 102, 241, 0.25)", "rgba(99, 102, 241, 0.45)", "rgba(99, 102, 241, 0.7)", "#6366f1"],
+			bg: "#ffffff",
+			cardBg: "#ffffff",
+			border: "rgba(32, 32, 32, 0.06)",
+			text: "#202020",
+			muted: "#202020",
+			dotBorder: "rgba(32, 32, 32, 0.06)",
+			gradStart: "#202020",
+			gradEnd: "#202020",
+			dots: ["#ffffff", "#e0e0e0", "#b0b0b0", "#808080", "#202020"],
 		};
 
 	let svgContent = "";
-	let y = 24;
+	let y = 12;
 
-	// Header
-	svgContent += `<text x="50%" y="${y + 26}" font-size="30" font-weight="700" text-anchor="middle" letter-spacing="0.08em" fill="url(#gradient)" text-transform="uppercase">${BODY_COPY}</text>`;
-	y += 48;
-
-	svgContent += `<text x="50%" y="${y + 12}" font-size="12" text-anchor="middle" letter-spacing="0.22em" fill="${colors.muted}" text-transform="uppercase">CODE * CREATE * CONTRIBUTE</text>`;
-	y += 32;
-
-	// Stats cards - 4 columns
-	const statWidth = 68;
-	const statHeight = 66;
-	const statGap = 12;
-	const statsY = y;
-	const stats = [
-		{ value: formatNumber(totalContributions), label: "Total Contributions" },
-		{ value: formatNumber(currentStreak), label: "Day Streak" },
-		{ value: repoLabel, label: "Repositories" },
-		{ value: visitorLabel, label: "Profile Views" },
-	];
-
-	const statsStartX = (props.width ?? 498 - 48) / 2 - (statWidth * 4 + statGap * 3) / 2 + 24;
-
-	stats.forEach((stat, i) => {
-		const x = statsStartX + i * (statWidth + statGap);
-		
-		// Card background
-		svgContent += `<rect x="${x}" y="${statsY}" width="${statWidth}" height="${statHeight}" rx="8" fill="${colors.cardBg}" stroke="${colors.border}" stroke-width="1"/>`;
-		
-		// Value
-		svgContent += `<text x="${x + statWidth / 2}" y="${statsY + 28}" font-size="16" font-weight="700" text-anchor="middle" fill="url(#gradient)">${stat.value}</text>`;
-		
-		// Label
-		svgContent += `<text x="${x + statWidth / 2}" y="${statsY + 50}" font-size="8" text-anchor="middle" letter-spacing="0.08em" fill="${colors.muted}" text-transform="uppercase">${stat.label}</text>`;
-	});
-
-	y = statsY + statHeight + 20;
-
-	// Contribution Galaxy Title
-	svgContent += `<text x="50%" y="${y + 12}" font-size="14" font-weight="600" text-anchor="middle" fill="${colors.text}">Contribution Galaxy</text>`;
-	y += 30;
-
-	// Heatmap container
+	// Heatmap container (7-row grid, horizontal expansion)
 	const heatmapX = 32;
 	const heatmapY = y;
-	const heatmapHeight = 80;
 	const dotSize = 10;
 	const dotGap = 2;
+	const dotsPerColumn = 7;
+	const defaultDelay = 1;
+	const defaultDuration = 1.55;
+	const defaultStagger = 0.1;
+	const animateGraphDelay = defaultDelay + defaultStagger * 17;
+	const shineDuration = 14;
+	
+	const totalDots = allDays.length;
+	const numColumns = Math.ceil(totalDots / dotsPerColumn);
+	const contentWidth = numColumns * (dotSize + dotGap);
+	const maxHeatmapWidth = (props.width ?? 498) - heatmapX * 2;
+	const heatmapWidth = Math.min(contentWidth + 16, maxHeatmapWidth);
+	const travelDistance = Math.max(contentWidth - (heatmapWidth - 16), 0);
+	const heatmapHeight = dotsPerColumn * (dotSize + dotGap) + 16;
 
-	svgContent += `<rect x="${heatmapX}" y="${heatmapY}" width="440" height="${heatmapHeight}" rx="12" fill="${colors.cardBg}" stroke="${colors.border}" stroke-width="1"/>`;
+	svgContent += `<rect x="${heatmapX}" y="${heatmapY}" width="${heatmapWidth}" height="${heatmapHeight}" rx="12" fill="${colors.cardBg}" stroke="${colors.border}" stroke-width="1"/>`;
 
-	// Heatmap dots
+	// Heatmap dots - 7 rows with lateral tracking and fade-in animation
+	const totalDuration = Math.ceil(numColumns) * (defaultStagger * 2) + 8;
+	let dotsContent = `<g clip-path="url(#heatmapClip)" style="animation: lateralTrack ${totalDuration}s ease-in-out forwards; animation-delay: ${defaultDelay}s;">`;
 	let dotX = heatmapX + 8;
 	let dotY = heatmapY + 8;
-	const dotsPerRow = 7;
 	let dotCount = 0;
 
 	props.years.forEach((year) => {
 		year.days.forEach((level) => {
-			if (dotCount % dotsPerRow === 0 && dotCount > 0) {
-				dotX = heatmapX + 8;
-				dotY += dotSize + dotGap;
-			}
-
 			const dotColor = colors.dots[Math.min(level, 4)];
-			svgContent += `<rect x="${dotX}" y="${dotY}" width="${dotSize}" height="${dotSize}" rx="2" fill="${dotColor}" stroke="${isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.1)"}" stroke-width="0.5"/>`;
-			dotX += dotSize + dotGap;
+			const columnIndex = Math.floor(dotCount / dotsPerColumn);
+			const fadeDelay = defaultDelay + columnIndex * defaultStagger;
+			dotsContent += `<rect x="${dotX}" y="${dotY}" width="${dotSize}" height="${dotSize}" rx="2" fill="${dotColor}" stroke="${colors.dotBorder}" stroke-width="0.5" style="animation: fadeInDot ${defaultDuration}s ease-out ${fadeDelay}s forwards; opacity: 0;"/>`;
+			dotY += dotSize + dotGap;
 			dotCount++;
+			
+			if (dotCount % dotsPerColumn === 0 && dotCount < totalDots) {
+				dotX += dotSize + dotGap;
+				dotY = heatmapY + 8;
+			}
 		});
 	});
 
-	y = heatmapY + heatmapHeight + 12;
+	dotsContent += `</g>`;
+	svgContent += dotsContent;
+	
+	// Shine overlay
+	svgContent += `<rect x="${heatmapX}" y="${heatmapY}" width="${heatmapWidth}" height="${heatmapHeight}" rx="12" fill="url(#shineGradient)" clip-path="url(#heatmapClip)" opacity="0.35"/>`;
+
+	y = heatmapY + heatmapHeight + 14;
 
 	// Legend
 	const legendY = y;
-	svgContent += `<text x="50%" y="${legendY + 10}" font-size="10" text-anchor="middle" fill="${colors.muted}">Less</text>`;
+	svgContent += `<text x="50%" y="${legendY + 8}" font-size="10" text-anchor="middle" fill="${colors.muted}">Less</text>`;
 
 	const legendDotsStartX = (props.width ?? 498) / 2 - (dotSize * 5 + dotGap * 4) / 2 - 20;
 	for (let i = 0; i < 5; i++) {
 		const dotColor = colors.dots[i];
-		svgContent += `<rect x="${legendDotsStartX + i * (dotSize + dotGap)}" y="${legendY - 4}" width="${dotSize}" height="${dotSize}" rx="1.5" fill="${dotColor}" stroke="${isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.1)"}" stroke-width="0.5"/>`;
+		svgContent += `<rect x="${legendDotsStartX + i * (dotSize + dotGap)}" y="${legendY - 2}" width="${dotSize}" height="${dotSize}" rx="1.5" fill="${dotColor}" stroke="${colors.dotBorder}" stroke-width="0.5"/>`;
 	}
 
-	svgContent += `<text x="${legendDotsStartX + (5 * (dotSize + dotGap)) + 8}" y="${legendY + 10}" font-size="10" text-anchor="start" fill="${colors.muted}">More</text>`;
+	svgContent += `<text x="${legendDotsStartX + (5 * (dotSize + dotGap)) + 8}" y="${legendY + 8}" font-size="10" text-anchor="start" fill="${colors.muted}">More</text>`;
 
 	const defs = `
+		<style>
+			@keyframes fadeInDot {
+				0% { opacity: 0; }
+				100% { opacity: 1; }
+			}
+			@keyframes lateralTrack {
+				0% { transform: translateX(40px); opacity: 0; }
+				${numColumns > 0 ? `50% { opacity: 1; }` : ""}
+				100% { transform: translateX(-${travelDistance}px); opacity: 1; }
+			}
+		</style>
+		<clipPath id="heatmapClip">
+			<rect x="${heatmapX}" y="${heatmapY}" width="${heatmapWidth}" height="${heatmapHeight}" rx="12"/>
+		</clipPath>
+		<linearGradient id="shineGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="${heatmapWidth}" y2="0">
+			<stop offset="0%" stop-color="rgba(255,255,255,0)" />
+			<stop offset="50%" stop-color="rgba(255,255,255,0.18)" />
+			<stop offset="100%" stop-color="rgba(255,255,255,0)" />
+			<animateTransform attributeName="gradientTransform" type="translate" from="-${heatmapWidth} 0" to="${heatmapWidth} 0" dur="${shineDuration}s" repeatCount="indefinite" begin="${animateGraphDelay}s" />
+		</linearGradient>
 		<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
 			<stop offset="0%" style="stop-color:${colors.gradStart};stop-opacity:1" />
 			<stop offset="100%" style="stop-color:${colors.gradEnd};stop-opacity:1" />
