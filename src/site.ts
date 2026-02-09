@@ -40,9 +40,6 @@ const site: ExportedHandler<Env> = {
       const { contributions } = data;
       const visitorCount = await getAndIncrementVisitors(env.VISITOR_KV);
       content = top({ height: 20, contributions, theme, visitorCount });
-    } else if (section === "link-resume") {
-      const index = Number(searchParams.get("i")) ?? 0;
-      content = link({ height: 18, width: 100, index, theme })("Resume");
     } else if (section === "link-website") {
       const index = Number(searchParams.get("i")) ?? 0;
       content = link({ height: 18, width: 100, index, theme })("Website");
