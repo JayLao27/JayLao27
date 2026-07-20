@@ -7,7 +7,6 @@
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-jaylao-blue?style=flat&logo=linkedin)](https://linkedin.com/in/jaylao)
 
 </div>
 
