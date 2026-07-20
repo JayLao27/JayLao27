@@ -40,7 +40,6 @@ ACCENT = "#22d3ee"
 ROWS = [
     ("host",),
     ("kv", "Now", "Software Engineer Intern @ Kumosoft"),
-    ("kv", "Also", "SDE + Instructor @ AccioJob (YC'21)"),
     ("kv", "Edu", "University of Mindanao"),
     ("gap",),
     ("sec", "Stack"),
